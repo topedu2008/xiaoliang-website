@@ -1,7 +1,7 @@
 {
   "meta": {
     "lastTouchedVersion": "2026.3.11",
-    "lastTouchedAt": "2026-03-13T22:50:47.956Z"
+    "lastTouchedAt": "2026-03-13T22:53:04.971Z"
   },
   "wizard": {
     "lastRunAt": "2026-02-05T16:16:05.545Z",
@@ -225,7 +225,8 @@
       "groupAllowFrom": [],
       "groupPolicy": "open",
       "requireMention": false,
-      "streaming": true
+      "streaming": true,
+      "responseDelay": 3000
     }
   },
   "gateway": {
