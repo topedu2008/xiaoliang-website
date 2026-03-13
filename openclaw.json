@@ -224,7 +224,7 @@
       "enabled": true,
       "groupAllowFrom": [],
       "groupPolicy": "open",
-      "requireMention": true,
+      "requireMention": false,
       "streaming": true
     }
   },
