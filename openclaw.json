@@ -1,7 +1,7 @@
 {
   "meta": {
-    "lastTouchedVersion": "2026.3.11",
-    "lastTouchedAt": "2026-03-13T22:35:21.488Z"
+    "lastTouchedVersion": "2026.3.12",
+    "lastTouchedAt": "2026-03-14T05:38:08.764Z"
   },
   "wizard": {
     "lastRunAt": "2026-02-05T16:16:05.545Z",
@@ -224,7 +224,7 @@
       "enabled": true,
       "groupAllowFrom": [],
       "groupPolicy": "open",
-      "requireMention": true,
+      "requireMention": false,
       "streaming": true
     }
   },
