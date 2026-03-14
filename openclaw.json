@@ -1,7 +1,7 @@
 {
   "meta": {
     "lastTouchedVersion": "2026.3.11",
-    "lastTouchedAt": "2026-03-13T22:53:04.971Z"
+    "lastTouchedAt": "2026-03-13T22:35:21.488Z"
   },
   "wizard": {
     "lastRunAt": "2026-02-05T16:16:05.545Z",
@@ -224,9 +224,8 @@
       "enabled": true,
       "groupAllowFrom": [],
       "groupPolicy": "open",
-      "requireMention": false,
-      "streaming": true,
-      "responseDelay": 3000
+      "requireMention": true,
+      "streaming": true
     }
   },
   "gateway": {
@@ -353,11 +352,7 @@
     }
   },
   "plugins": {
-    "allow": [
-      "wecom",
-      "feishu-openclaw-plugin",
-      "openclaw-cozeloop-trace"
-    ],
+    "allow": [],
     "entries": {
       "feishu": {
         "enabled": false
