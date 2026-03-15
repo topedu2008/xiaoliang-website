@@ -1,7 +1,7 @@
 {
   "meta": {
-    "lastTouchedVersion": "2026.3.13",
-    "lastTouchedAt": "2026-03-15T05:40:34.066Z"
+    "lastTouchedVersion": "2026.3.12",
+    "lastTouchedAt": "2026-03-14T11:53:34.361Z"
   },
   "wizard": {
     "lastRunAt": "2026-02-05T16:16:05.545Z",
@@ -10,7 +10,7 @@
     "lastRunMode": "local"
   },
   "browser": {
-    "enabled": false,
+    "enabled": true,
     "color": "#00AA00",
     "executablePath": "/opt/google/chrome/chrome",
     "headless": false,
@@ -183,18 +183,12 @@
         "primary": "coze/doubao-seed-1-8-251228"
       },
       "workspace": "/workspace/projects/workspace",
-      "memorySearch": {
-        "enabled": false
-      },
       "compaction": {
         "mode": "safeguard"
       },
       "maxConcurrent": 4,
       "subagents": {
         "maxConcurrent": 8
-      },
-      "sandbox": {
-        "mode": "all"
       }
     }
   },
@@ -358,12 +352,10 @@
     }
   },
   "plugins": {
-    "allow": [
-      "feishu"
-    ],
+    "allow": [],
     "entries": {
       "feishu": {
-        "enabled": true
+        "enabled": false
       },
       "feishu-openclaw-plugin": {
         "enabled": true
