@@ -1,7 +1,7 @@
 {
   "meta": {
     "lastTouchedVersion": "2026.3.13",
-    "lastTouchedAt": "2026-03-15T07:33:33.292Z"
+    "lastTouchedAt": "2026-03-16T15:35:45.623Z"
   },
   "wizard": {
     "lastRunAt": "2026-02-05T16:16:05.545Z",
@@ -232,6 +232,17 @@
       "groupPolicy": "open",
       "requireMention": false,
       "streaming": true
+    },
+    "napcat": {
+      "enabled": true,
+      "httpApi": "http://127.0.0.1:3000",
+      "accessToken": "${NAPCAT_ACCESS_TOKEN}",
+      "selfId": "1903543016",
+      "dmPolicy": "open",
+      "groupPolicy": "open",
+      "requireMention": false,
+      "allowFrom": [],
+      "voiceToText": true
     }
   },
   "gateway": {
@@ -359,7 +370,8 @@
   },
   "plugins": {
     "allow": [
-      "feishu"
+      "feishu",
+      "napcat"
     ],
     "entries": {
       "feishu": {
@@ -369,6 +381,9 @@
         "enabled": false
       },
       "wecom": {
+        "enabled": true
+      },
+      "napcat": {
         "enabled": true
       }
     },
@@ -411,6 +426,19 @@
         "shasum": "d903bafcb970107b1d4629d1b26d9f8b4e6b5121",
         "resolvedAt": "2026-03-08T06:36:42.450Z",
         "installedAt": "2026-03-08T06:38:35.736Z"
+      },
+      "napcat": {
+        "source": "npm",
+        "spec": "@hyl_aa/openclaw-napcat",
+        "installPath": "/workspace/projects/extensions/napcat",
+        "version": "1.1.0",
+        "resolvedName": "@hyl_aa/openclaw-napcat",
+        "resolvedVersion": "1.1.0",
+        "resolvedSpec": "@hyl_aa/openclaw-napcat@1.1.0",
+        "integrity": "sha512-/yagDQEyu20T9tkXG1mMcUBwyPgmt0nnOLwUDlf9uTCsKIm5rRdRvfkyfmp9qpL9A6Xga7z9d4Z58X1kBt04Fg==",
+        "shasum": "57e7a6c2a598d5948b8f3903646240b92a713fc5",
+        "resolvedAt": "2026-03-16T15:34:22.554Z",
+        "installedAt": "2026-03-16T15:35:44.476Z"
       }
     }
   }
