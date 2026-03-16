@@ -1,7 +1,7 @@
 {
   "meta": {
-    "lastTouchedVersion": "2026.3.12",
-    "lastTouchedAt": "2026-03-14T11:53:34.361Z"
+    "lastTouchedVersion": "2026.3.13",
+    "lastTouchedAt": "2026-03-15T07:33:33.292Z"
   },
   "wizard": {
     "lastRunAt": "2026-02-05T16:16:05.545Z",
@@ -183,12 +183,18 @@
         "primary": "coze/doubao-seed-1-8-251228"
       },
       "workspace": "/workspace/projects/workspace",
+      "memorySearch": {
+        "enabled": false
+      },
       "compaction": {
         "mode": "safeguard"
       },
       "maxConcurrent": 4,
       "subagents": {
         "maxConcurrent": 8
+      },
+      "sandbox": {
+        "mode": "off"
       }
     }
   },
@@ -217,7 +223,7 @@
         "ou_43b748fb8a9bdcd5795007a3b817f2e5"
       ],
       "appId": "cli_a939df0174391bb6",
-      "appSecret": "BHa4ILPaBnh7TP4UbWkojckg4T1pC8dM",
+      "appSecret": "${FEISHU_APP_SECRET}",
       "connectionMode": "websocket",
       "dmPolicy": "allowlist",
       "domain": "feishu",
@@ -241,7 +247,7 @@
     },
     "auth": {
       "mode": "token",
-      "token": "43beea6f-ce3d-4ac3-9948-0df149934ece"
+      "token": "${OPENCLAW_GATEWAY_TOKEN}"
     },
     "trustedProxies": [
       "::1",
@@ -352,20 +358,15 @@
     }
   },
   "plugins": {
-    "allow": [],
+    "allow": [
+      "feishu"
+    ],
     "entries": {
       "feishu": {
-        "enabled": false
-      },
-      "feishu-openclaw-plugin": {
         "enabled": true
       },
       "openclaw-cozeloop-trace": {
-        "enabled": true,
-        "config": {
-          "authorization": "Bearer ${COZE_LOOP_API_TOKEN}",
-          "workspaceId": "${COZE_PROJECT_SPACE_ID}"
-        }
+        "enabled": false
       },
       "wecom": {
         "enabled": true
