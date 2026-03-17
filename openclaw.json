@@ -1,12 +1,12 @@
 {
   "meta": {
     "lastTouchedVersion": "2026.3.13",
-    "lastTouchedAt": "2026-03-16T15:35:45.623Z"
+    "lastTouchedAt": "2026-03-17T02:16:47.512Z"
   },
   "wizard": {
-    "lastRunAt": "2026-02-05T16:16:05.545Z",
-    "lastRunVersion": "2026.2.1",
-    "lastRunCommand": "onboard",
+    "lastRunAt": "2026-03-17T02:16:47.500Z",
+    "lastRunVersion": "2026.3.13",
+    "lastRunCommand": "doctor",
     "lastRunMode": "local"
   },
   "browser": {
@@ -234,15 +234,29 @@
       "streaming": true
     },
     "napcat": {
-      "enabled": true,
+      "enabled": false,
       "httpApi": "http://127.0.0.1:3000",
       "accessToken": "${NAPCAT_ACCESS_TOKEN}",
       "selfId": "1903543016",
       "dmPolicy": "open",
       "groupPolicy": "open",
       "requireMention": false,
-      "allowFrom": [],
+      "allowFrom": [
+        "*"
+      ],
       "voiceToText": true
+    },
+    "qqbot": {
+      "enabled": true,
+      "appId": "1903543016",
+      "clientSecret": "${QQBOT_CLIENT_SECRET}",
+      "dmPolicy": "open",
+      "groupPolicy": "open",
+      "requireMention": false,
+      "sandbox": false,
+      "allowFrom": [
+        "*"
+      ]
     }
   },
   "gateway": {
@@ -371,7 +385,8 @@
   "plugins": {
     "allow": [
       "feishu",
-      "napcat"
+      "napcat",
+      "openclaw-qqbot"
     ],
     "entries": {
       "feishu": {
@@ -384,6 +399,9 @@
         "enabled": true
       },
       "napcat": {
+        "enabled": true
+      },
+      "openclaw-qqbot": {
         "enabled": true
       }
     },
@@ -439,6 +457,19 @@
         "shasum": "57e7a6c2a598d5948b8f3903646240b92a713fc5",
         "resolvedAt": "2026-03-16T15:34:22.554Z",
         "installedAt": "2026-03-16T15:35:44.476Z"
+      },
+      "openclaw-qqbot": {
+        "source": "npm",
+        "spec": "@tencent-connect/openclaw-qqbot",
+        "installPath": "/workspace/projects/extensions/openclaw-qqbot",
+        "version": "1.5.7",
+        "resolvedName": "@tencent-connect/openclaw-qqbot",
+        "resolvedVersion": "1.5.7",
+        "resolvedSpec": "@tencent-connect/openclaw-qqbot@1.5.7",
+        "integrity": "sha512-L7FmpZFRCPE8rx5T4QXeAKfoOv+UTkOBIyIcur4VPR4WVfEWAN+GMCa88VZYUf89zy834BaNzJNkHbYdasMqIg==",
+        "shasum": "e9ecfe9edd661bad52c78d01abd4f0817f3cbfae",
+        "resolvedAt": "2026-03-17T02:10:45.944Z",
+        "installedAt": "2026-03-17T02:12:41.410Z"
       }
     }
   }
