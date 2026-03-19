@@ -18,7 +18,46 @@
       ],
       "images": [],
       "video": null
+    },
+    {
+      "date": "2026-03-19",
+      "day": 2,
+      "content": [
+        "小亮今天特别活泼可爱！",
+        "在栖木上跳来跳去",
+        "红色的腮红越来越漂亮了",
+        "对新环境适应得很好",
+        "拍了好多可爱的照片！📸"
+      ],
+      "images": [
+        "images/2026-03-19/001.jpg",
+        "images/2026-03-19/002.jpg",
+        "images/2026-03-19/003.jpg",
+        "images/2026-03-19/004.jpg"
+      ],
+      "video": null
     }
   ],
-  "gallery": []
+  "gallery": [
+    {
+      "type": "image",
+      "src": "images/2026-03-19/001.jpg",
+      "caption": "小亮的可爱瞬间"
+    },
+    {
+      "type": "image",
+      "src": "images/2026-03-19/002.jpg",
+      "caption": "活泼的小亮"
+    },
+    {
+      "type": "image",
+      "src": "images/2026-03-19/003.jpg",
+      "caption": "红色腮红很漂亮"
+    },
+    {
+      "type": "image",
+      "src": "images/2026-03-19/004.jpg",
+      "caption": "小亮在观察周围"
+    }
+  ]
 }
