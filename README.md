@@ -1,0 +1,352 @@
+# 小亮（玄凤鹦鹉）网站 🐦
+
+> 小亮的日常 - 一只玄凤鹦鹉的成长日记
+
+---
+
+## 🌐 网站预览
+
+这是一个关于小亮（5个月大的玄凤鹦鹉）的专属网站，包含：
+- 📖 **饲养技巧**：科学的饮食和护理指南
+- 🎵 **训练历程**：记录唱歌训练的每一个阶段
+- 📅 **成长日记**：每日生活记录
+- 📸 **相册**：小亮的生活照片
+- 🎮 **小互动**：和小亮打招呼、听它唱歌
+
+---
+
+## 🚀 如何使用
+
+### 方法一：直接在浏览器打开
+
+1. 打开文件管理器
+2. 找到 `xiaoliang-website` 文件夹
+3. 双击 `index.html` 文件
+4. 网站会在浏览器中打开
+
+### 方法二：使用本地服务器（推荐）
+
+#### Windows/Mac/Linux:
+
+```bash
+# Python 3
+cd xiaoliang-website
+python -m http.server 8000
+
+# 然后在浏览器访问
+# http://localhost:8000
+```
+
+或者使用 Node.js:
+
+```bash
+# 安装 http-server（如果还没安装）
+npm install -g http-server
+
+# 运行
+cd xiaoliang-website
+http-server -p 8000
+
+# 然后在浏览器访问
+# http://localhost:8000
+```
+
+---
+
+## 📁 文件结构
+
+```
+xiaoliang-website/
+├── index.html          # 网站主文件
+├── README.md           # 使用说明（本文件）
+├── photos/             # 照片文件夹（待创建）
+│   ├── day1.jpg
+│   ├── day2.jpg
+│   └── ...
+└── videos/             # 视频文件夹（待创建）
+    ├── singing.mp4
+    └── ...
+```
+
+---
+
+## 🎨 网站功能
+
+### 1. 主页介绍
+- 小亮的基本信息
+- 可爱的动画效果
+- 特色标签展示
+
+### 2. 成长数据
+- 月龄计数
+- 学习进度
+- 可爱指数
+
+### 3. 饲养技巧
+- 科学饮食指南
+- 环境要求
+- 日常护理
+- 禁忌食物
+
+### 4. 训练历程
+- 时间轴展示
+- 分阶段训练计划
+- 进度跟踪
+
+### 5. 成长日记
+- 每日记录
+- 滚动查看
+- 日期标记
+
+### 6. 小亮相册
+- 照片展示
+- 视频展示
+- 分类管理
+
+### 7. 小互动
+- 和小亮打招呼
+- 听小亮唱歌
+- 看小亮表演
+
+---
+
+## 📝 如何更新内容
+
+### 更新成长日记
+
+编辑 `index.html` 文件，找到 "成长日记" 部分：
+
+```html
+<div class="logs">
+    <!-- 新增日记条目 -->
+    <div class="log-entry">
+        <div class="log-date">📅 2026-03-19（第2天）</div>
+        <ul>
+            <li>今天小亮做了什么？</li>
+            <li>吃了什么？</li>
+            <li>有什么有趣的行为？</li>
+        </ul>
+    </div>
+</div>
+```
+
+### 添加照片
+
+1. 在 `xiaoliang-website` 文件夹中创建 `photos` 文件夹
+2. 将照片放入文件夹
+3. 在 `index.html` 的 "小亮相册" 部分添加：
+
+```html
+<div class="gallery">
+    <div class="photo-placeholder">
+        <img src="photos/day1.jpg" alt="小亮第一天" style="width:100%; border-radius:15px;">
+        <div style="margin-top:10px;">第1天</div>
+    </div>
+</div>
+```
+
+### 更新成长数据
+
+在 `index.html` 的 "成长数据" 部分修改数字：
+
+```html
+<div class="stats">
+    <div class="stat-item">
+        <div class="stat-number">5</div>  <!-- 修改这个数字 -->
+        <div class="stat-label">月龄</div>
+    </div>
+</div>
+```
+
+---
+
+## 🎯 下一步计划
+
+### 功能增强
+
+- [ ] 添加照片上传功能
+- [ ] 添加视频播放器
+- [ ] 添加评论系统
+- [ ] 添加分享功能
+- [ ] 移动端优化
+- [ ] 深色模式
+
+### 内容完善
+
+- [ ] 添加更多饲养技巧
+- [ ] 补充训练视频
+- [ ] 扩展成长日记
+- [ ] 添加FAQ常见问题
+- [ ] 添加玄凤鹦鹉百科
+
+---
+
+## 🌟 特色亮点
+
+### 视觉效果
+- ✨ 渐变色背景
+- 🎨 卡片式设计
+- 🌈 动画效果
+- 📱 响应式布局
+
+### 交互功能
+- 👋 打招呼互动
+- 🎵 歌声播放
+- 🎭 表演展示
+- 📊 数据可视化
+
+### 用户体验
+- 🔄 平滑滚动
+- ⚡ 快速加载
+- 📱 手机友好
+- 🎯 清晰导航
+
+---
+
+## 💡 自定义建议
+
+### 更换颜色主题
+
+在 `index.html` 的 `<style>` 部分，修改这些颜色：
+
+```css
+/* 主色调 */
+background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+
+/* 文字颜色 */
+color: #667eea;
+
+/* 强调色 */
+color: #ff6b6b;
+```
+
+### 修改动画速度
+
+```css
+/* 修改这些值 */
+animation-duration: 2s;  /* 从2秒改为其他值 */
+transition: all 0.3s ease;  /* 从0.3秒改为其他值 */
+```
+
+### 添加新的互动按钮
+
+在 JavaScript 部分：
+
+```javascript
+function newInteraction() {
+    const area = document.getElementById('response-area');
+    area.className = 'show';
+    area.innerHTML = '<p>新的互动内容！</p>';
+}
+```
+
+然后在HTML中添加按钮：
+
+```html
+<button class="interaction-btn" onclick="newInteraction()">新功能</button>
+```
+
+---
+
+## 📞 常见问题
+
+### Q: 如何分享网站？
+A: 可以将整个 `xiaoliang-website` 文件夹压缩分享，或者部署到GitHub Pages。
+
+### Q: 照片不显示怎么办？
+A: 检查照片路径是否正确，确保照片在 `photos` 文件夹中。
+
+### Q: 如何添加视频？
+A: 创建 `videos` 文件夹，使用 `<video>` 标签：
+
+```html
+<video src="videos/singing.mp4" controls style="width:100%; border-radius:15px;"></video>
+```
+
+### Q: 如何修改网站标题？
+A: 在 `index.html` 的 `<title>` 标签中修改：
+
+```html
+<title>你的网站标题</title>
+```
+
+---
+
+## 🎉 开始使用
+
+1. 打开网站，浏览内容
+2. 每天更新小亮的日常
+3. 添加新的照片和视频
+4. 与小亮互动！🎮
+
+---
+
+## 📱 移动端访问
+
+网站已经适配移动端，在手机上也能完美显示！
+
+- 📱 响应式设计
+- 👆 触摸友好
+- 🎨 优化布局
+- ⚡ 快速加载
+
+---
+
+## 🌐 部署到网络
+
+### GitHub Pages（推荐）
+
+1. 在 GitHub 创建仓库
+2. 上传 `xiaoliang-website` 文件夹内容
+3. 启用 GitHub Pages
+4. 访问 `https://你的用户名.github.io/仓库名`
+
+### 其他平台
+
+- Netlify
+- Vercel
+- Cloudflare Pages
+- 传统虚拟主机
+
+---
+
+## 🎨 设计说明
+
+### 颜色方案
+- **主色调**: 紫色渐变 (#667eea → #764ba2)
+- **强调色**: 红色 (#ff6b6b)
+- **背景色**: 白色 (#ffffff)
+- **文字色**: 深灰 (#333333)
+
+### 字体
+- 中文: PingFang SC, Microsoft YaHei
+- 英文: system-ui, sans-serif
+
+### 动画效果
+- 淡入淡出
+- 弹跳效果
+- 平滑滚动
+- 悬停效果
+
+---
+
+## 📚 参考资源
+
+- [HTML 教程](https://www.w3schools.com/html/)
+- [CSS 教程](https://www.w3schools.com/css/)
+- [JavaScript 教程](https://www.w3schools.com/js/)
+- [Web 动画](https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Animations)
+
+---
+
+## 💖 感谢
+
+感谢你关注小亮的成长！🐦❤️
+
+我们会持续更新小亮的日常，分享更多有趣的瞬间！
+
+---
+
+*网站创建日期：2026年3月18日*
+*创建者：扣虾（KouXia）🦞*
+*小亮加油！我们陪你一起成长！🐦✨*
