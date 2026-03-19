@@ -117,6 +117,39 @@
             padding-bottom: 15px;
         }
 
+        /* Stats */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-item {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+
         /* Care Tips */
         .care-tips {
             display: grid;
@@ -217,39 +250,6 @@
             margin-bottom: 10px;
         }
 
-        /* Gallery */
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
-
-        .photo-placeholder {
-            aspect-ratio: 1;
-            background: linear-gradient(135deg, #ffeaa7, #fdcb6e);
-            border-radius: 15px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: #795548;
-            font-size: 0.9em;
-            text-align: center;
-            padding: 20px;
-            border: 3px dashed #d4a574;
-            transition: all 0.3s ease;
-        }
-
-        .photo-placeholder:hover {
-            transform: scale(1.05);
-            border-color: #ff6b6b;
-        }
-
-        .photo-placeholder .icon {
-            font-size: 3em;
-            margin-bottom: 10px;
-        }
-
         /* Daily Logs */
         .logs {
             max-height: 600px;
@@ -294,6 +294,71 @@
             position: absolute;
             left: 0;
             color: #667eea;
+        }
+
+        /* Gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            aspect-ratio: 1;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 3px solid #667eea;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .gallery-placeholder {
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, #ffeaa7, #fdcb6e);
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #795548;
+            font-size: 0.9em;
+            text-align: center;
+            padding: 20px;
+            border: 3px dashed #d4a574;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-placeholder:hover {
+            transform: scale(1.05);
+            border-color: #ff6b6b;
+        }
+
+        .gallery-placeholder .icon {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+
+        /* Video */
+        .video-container {
+            width: 100%;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
         }
 
         /* Interactive Section */
@@ -348,39 +413,6 @@
             display: block;
         }
 
-        /* Stats */
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-
-        .stat-item {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            padding: 25px;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease;
-        }
-
-        .stat-item:hover {
-            transform: translateY(-5px);
-        }
-
-        .stat-number {
-            font-size: 2.5em;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-
-        .stat-label {
-            font-size: 0.9em;
-            opacity: 0.9;
-        }
-
         /* Footer */
         footer {
             background: rgba(255, 255, 255, 0.95);
@@ -404,6 +436,14 @@
         @keyframes heartbeat {
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.2); }
+        }
+
+        /* Loading */
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #667eea;
+            font-size: 1.2em;
         }
 
         /* Responsive */
@@ -440,6 +480,10 @@
             .interaction-box {
                 flex-direction: column;
             }
+
+            .video-container iframe {
+                height: 300px;
+            }
         }
 
         /* Scrollbar */
@@ -459,6 +503,11 @@
 
         .logs::-webkit-scrollbar-thumb:hover {
             background: #764ba2;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
     </style>
 </head>
@@ -490,23 +539,8 @@
         <!-- Stats -->
         <section class="section">
             <h2>📊 成长数据</h2>
-            <div class="stats">
-                <div class="stat-item">
-                    <div class="stat-number">5</div>
-                    <div class="stat-label">月龄</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">0</div>
-                    <div class="stat-label">学会的音阶</div>
-                </div>
-div class="stat-item">
-                    <div class="stat-number">1</div>
-                    <div class="stat-label">信任等级</div>
-                </div>
-<div class="stat-item">
-                    <div class="stat-number">100%</div>
-                    <div class="stat-label">可爱指数</div>
-                </div>
+            <div class="stats" id="stats">
+                <div class="loading">加载中...</div>
             </div>
         </section>
 
@@ -539,7 +573,7 @@ div class="stat-item">
                     <h3>🧼 日常护理</h3>
                     <ul>
                         <li>每天清理笼子，更换水碗</li>
-<li>每周彻底清洁和消毒</li>
+                        <li>每周彻底清洁和消毒</li>
                         <li>定期检查羽毛和指甲</li>
                         <li>每天放出笼子活动1-2小时</li>
                         <li>提供玩具防止无聊</li>
@@ -605,60 +639,20 @@ div class="stat-item">
         <!-- Daily Logs -->
         <section class="section">
             <h2>📅 成长日记</h2>
-            <div class="logs">
-                <div class="log-entry">
-                    <div class="log-date">📅 2026-03-18（第1天）</div>
-                    <ul>
-                        <li>第一次见面，小亮的红色腮红很漂亮！</li>
-                        <li>对手机屏幕很好奇，会歪头观察</li>
-                        <li>喜欢站在栖木的最高处</li>
-                        <li>食欲正常，吃得很香</li>
-                        <li>建立信任关系的开始</li>
-                    </ul>
-                </div>
-
-                <div class="entry-template" style="display:none;">
-                    <div class="log-entry">
-                        <div class="log-date">📅 [日期]（第N天）</div>
-                        <ul>
-                            <li>今天小亮做了什么？</li>
-                            <li>吃了什么？食欲怎么样？</li>
-                            <li>有什么有趣的行为？</li>
-                            <li>训练有什么进展？</li>
-                        </ul>
-                    </div>
-                </div>
+            <div class="logs" id="logs">
+                <div class="loading">加载中...</div>
             </div>
         </section>
 
         <!-- Gallery -->
         <section class="section">
             <h2>📸 小亮相册</h2>
-            <div class="gallery">
-                <div class="photo-placeholder">
+            <div class="gallery" id="gallery">
+                <div class="gallery-placeholder">
                     <div class="icon">📸</div>
                     <div>等待第一张照片...</div>
                 </div>
-                <div class="photo-placeholder">
-                    <div class="icon">🎵</div>
-                    <div>唱歌视频...</div>
-                </div>
-                <div class="photo-placeholder">
-                    <div class="icon">🥗</div>
-div>可爱的瞬间...</div>
-                </div>
-                <div class="photo-placeholder">
-                    <div class="icon">🎭</div>
-                    <div>训练时刻...</div>
-                </div>
-                <div class="photo-placeholder">
-                    <div class="icon">💤</div>
-                    <div>温馨日常...</div>
-                </div>
             </div>
-            <p style="text-align: center; margin-top: 20px; color: #667eea; font-style: italic;">
-                每天都会更新小亮的生活照片哦！📸
-            </p>
         </section>
 
         <!-- Interactive -->
@@ -684,6 +678,110 @@ div>可爱的瞬间...</div>
     </div>
 
     <script>
+        // Load data from JSON
+        async function loadData() {
+            try {
+                const response = await fetch('data/diary.json');
+                const data = await response.json();
+
+                // Update stats
+                updateStats(data.stats);
+
+                // Update diary
+                updateDiary(data.diary);
+
+                // Update gallery
+                updateGallery(data.gallery);
+
+            } catch (error) {
+                console.error('Error loading data:', error);
+                document.getElementById('stats').innerHTML = '<p>数据加载失败，请稍后再试</p>';
+                document.getElementById('logs').innerHTML = '<p>数据加载失败，请稍后再试</p>';
+            }
+        }
+
+        function updateStats(stats) {
+            const statsContainer = document.getElementById('stats');
+            statsContainer.innerHTML = `
+                <div class="stat-item">
+                    <div class="stat-number">${stats.age}</div>
+                    <div class="stat-label">月龄</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">${stats.scales}</div>
+                    <div class="stat-label">学会的音阶</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">${stats.trust}</div>
+                    <div class="stat-label">信任等级</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">${stats.cute}%</div>
+                    <div class="stat-label">可爱指数</div>
+                </div>
+            `;
+        }
+
+        function updateDiary(diary) {
+            const logsContainer = document.getElementById('logs');
+
+            if (diary.length === 0) {
+                logsContainer.innerHTML = '<p>还没有日记记录哦！</p>';
+                return;
+            }
+
+            const diaryHTML = diary.map(entry => {
+                let imagesHTML = '';
+                if (entry.images && entry.images.length > 0) {
+                    imagesHTML = '<div style="margin-top: 15px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px;">' +
+                        entry.images.map(img => `<img src="${img}" style="width: 100%; border-radius: 10px; border: 2px solid #667eea;">`).join('') +
+                        '</div>';
+                }
+
+                let videoHTML = '';
+                if (entry.video) {
+                    videoHTML = '<div class="video-container"><iframe src="' + entry.video + '" allowfullscreen></iframe></div>';
+                }
+
+                return `
+                    <div class="log-entry">
+                        <div class="log-date">📅 ${entry.date}（第${entry.day}天）</div>
+                        <ul>
+                            ${entry.content.map(item => `<li>${item}</li>`).join('')}
+                        </ul>
+                        ${imagesHTML}
+                        ${videoHTML}
+                    </div>
+                `;
+            }).reverse().join('');
+
+            logsContainer.innerHTML = diaryHTML;
+        }
+
+        function updateGallery(gallery) {
+            const galleryContainer = document.getElementById('gallery');
+
+            if (gallery.length === 0) {
+                galleryContainer.innerHTML = `
+                    <div class="gallery-placeholder">
+                        <div class="icon">📸</div>
+                        <div>等待第一张照片...</div>
+                    </div>
+                `;
+                return;
+            }
+
+            const galleryHTML = gallery.map(item => {
+                if (item.type === 'image') {
+                    return `<div class="gallery-item"><img src="${item.src}" alt="${item.caption}"></div>`;
+                } else if (item.type === 'video') {
+                    return `<div class="gallery-item"><div class="video-container"><iframe src="${item.src}" allowfullscreen></iframe></div></div>`;
+                }
+            }).join('');
+
+            galleryContainer.innerHTML = galleryHTML;
+        }
+
         // Interactive features
         const responses = {
             hello: [
@@ -728,6 +826,9 @@ div>可爱的瞬间...</div>
             area.className = 'show';
             area.innerHTML = `<p style="font-size: 1.3em; color: #667eea;">${getRandomResponse('trick')}</p>`;
         }
+
+        // Load data on page load
+        document.addEventListener('DOMContentLoaded', loadData);
 
         // Add animation on scroll
         window.addEventListener('scroll', function() {
