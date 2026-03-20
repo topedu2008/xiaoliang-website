@@ -29,7 +29,7 @@
         /* Header */
         header {
             text-align: center;
-            padding: 40px 20px;
+            padding: 30px 20px;
             background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
             margin-bottom: 20px;
@@ -39,8 +39,8 @@
         }
 
         .logo {
-            font-size: 70px;
-            margin-bottom: 10px;
+            font-size: 60px;
+            margin-bottom: 8px;
             animation: bounce 2s infinite;
             cursor: pointer;
             transition: transform 0.3s;
@@ -56,24 +56,23 @@
         }
 
         h1 {
-            font-size: 2.2em;
+            font-size: 1.8em;
             color: #667eea;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .subtitle {
-            font-size: 1.1em;
+            font-size: 1em;
             color: #764ba2;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
 
         .version-info {
-            font-size: 0.9em;
+            font-size: 0.85em;
             color: #666;
-            margin-bottom: 15px;
-            padding: 8px 16px;
+            padding: 6px 14px;
             background: #f5f5f5;
-            border-radius: 10px;
+            border-radius: 8px;
             display: inline-block;
         }
 
@@ -91,37 +90,37 @@
         /* Search Bar */
         .search-container {
             max-width: 500px;
-            margin: 0 auto 20px;
+            margin: 0 auto 15px;
         }
 
         .search-box {
             display: flex;
-            gap: 10px;
+            gap: 8px;
         }
 
         .search-input {
             flex: 1;
-            padding: 12px 20px;
+            padding: 10px 15px;
             border: 2px solid #667eea;
-            border-radius: 25px;
-            font-size: 16px;
+            border-radius: 20px;
+            font-size: 14px;
             outline: none;
             transition: all 0.3s;
         }
 
         .search-input:focus {
             border-color: #764ba2;
-            box-shadow: 0 0 10px rgba(102, 126, 234, 0.3);
+            box-shadow: 0 0 8px rgba(102, 126, 234, 0.3);
         }
 
         .search-btn {
-            padding: 12px 30px;
+            padding: 10px 25px;
             background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
             border: none;
-            border-radius: 25px;
+            border-radius: 20px;
             cursor: pointer;
-            font-size: 16px;
+            font-size: 14px;
             transition: all 0.3s;
         }
 
@@ -134,7 +133,7 @@
         .daily-photo {
             background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
-            padding: 30px;
+            padding: 25px;
             margin-bottom: 20px;
             text-align: center;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
@@ -143,15 +142,15 @@
 
         .daily-photo h2 {
             color: #667eea;
-            margin-bottom: 20px;
-            font-size: 1.5em;
+            margin-bottom: 15px;
+            font-size: 1.3em;
         }
 
         .daily-photo .photo-container {
             position: relative;
-            max-width: 600px;
+            max-width: 500px;
             margin: 0 auto;
-            border-radius: 15px;
+            border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
         }
@@ -167,9 +166,9 @@
         }
 
         .daily-photo .caption {
-            padding: 15px 0;
+            padding: 12px 0;
             color: #666;
-            font-size: 0.95em;
+            font-size: 0.9em;
         }
 
         @keyframes fadeInUp {
@@ -187,7 +186,7 @@
         .diary-carousel {
             background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
-            padding: 40px;
+            padding: 30px;
             margin-bottom: 20px;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
             animation: fadeInUp 0.6s ease-out;
@@ -195,23 +194,23 @@
 
         .diary-carousel h2 {
             color: #667eea;
-            margin-bottom: 30px;
-            font-size: 1.8em;
+            margin-bottom: 20px;
+            font-size: 1.5em;
             text-align: center;
         }
 
         .carousel-container {
             position: relative;
             overflow: hidden;
-            padding: 20px 0;
+            padding: 15px 0;
         }
 
         .carousel-track {
             display: flex;
-            gap: 20px;
+            gap: 15px;
             overflow-x: auto;
             scroll-behavior: smooth;
-            padding: 20px 0;
+            padding: 15px 0;
             scrollbar-width: none;
             -ms-overflow-style: none;
             animation: fadeInUp 0.8s ease-out;
@@ -222,60 +221,60 @@
         }
 
         .diary-card {
-            flex: 0 0 300px;
+            flex: 0 0 280px;
             background: white;
-            border-radius: 15px;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
             transition: all 0.3s ease;
             cursor: pointer;
         }
 
         .diary-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
         }
 
         .diary-card.expanded {
-            flex: 0 0 800px;
+            flex: 0 0 700px;
         }
 
         .diary-cover {
             width: 100%;
-            height: 200px;
+            height: 180px;
             object-fit: cover;
             cursor: pointer;
         }
 
         .diary-info {
-            padding: 20px;
+            padding: 15px;
         }
 
         .diary-date {
-            font-size: 0.9em;
+            font-size: 0.85em;
             color: #667eea;
             font-weight: bold;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .diary-title {
-            font-size: 1.2em;
+            font-size: 1.1em;
             font-weight: bold;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             color: #333;
         }
 
         .diary-preview {
             color: #666;
-            font-size: 0.95em;
-            line-height: 1.6;
+            font-size: 0.9em;
+            line-height: 1.5;
         }
 
         .diary-content {
             display: none;
-            padding: 0 20px 20px;
+            padding: 0 15px 15px;
             background: #f9f9f9;
-            margin: 0 -20px -20px -20px;
+            margin: 0 -15px -15px -15px;
             border-top: 1px solid #eee;
         }
 
@@ -283,11 +282,23 @@
             display: block;
         }
 
+        .diary-content h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1em;
+        }
+
+        .diary-content ul {
+            padding-left: 20px;
+            margin: 5px 0;
+            line-height: 1.5;
+        }
+
         .diary-images {
-            margin-top: 15px;
+            margin-top: 12px;
             display: none;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            gap: 10px;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 8px;
         }
 
         .diary-card.expanded .diary-images {
@@ -296,7 +307,7 @@
 
         .diary-images img {
             width: 100%;
-            border-radius: 8px;
+            border-radius: 6px;
             cursor: pointer;
             transition: transform 0.3s;
         }
@@ -308,8 +319,8 @@
         /* Sections */
         .section {
             background: rgba(255, 255, 255, 0.95);
-            border-radius:  20px;
-            padding: 40px;
+            border-radius: 20px;
+            padding: 30px;
             margin-bottom: 20px;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
             animation: fadeInUp 0.6s ease-out;
@@ -317,41 +328,10 @@
 
         .section h2 {
             color: #667eea;
-            margin-bottom: 30px;
-            font-size: 1.8em;
+            margin-bottom: 20px;
+            font-size: 1.5em;
             border-bottom: 3px solid #667eea;
-            padding-bottom: 15px;
-        }
-
-        /* Stats */
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 20px;
-        }
-
-        .stat-card {
-            text-align: center;
-            padding: 30px 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 15px;
-            color: white;
-            transition: transform 0.3s;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .stat-value {
-            font-size: 2.5em;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-
-        .stat-label {
-            font-size:  0.95em;
-            opacity: 0.9;
+            padding-bottom: 10px;
         }
 
         /* Tips List */
@@ -360,9 +340,9 @@
         }
 
         .tips-list li {
-            padding: 15px 0;
+            padding: 12px 0;
             border-bottom: 1px solid #eee;
-            padding-left: 30px;
+            padding-left: 25px;
             position: relative;
         }
 
@@ -371,7 +351,7 @@
             color: #667eea;
             font-size: 1.5em;
             position: absolute;
-            left: 15px;
+            left: 12px;
         }
 
         .tips-list li strong {
@@ -385,52 +365,52 @@
         }
 
         .timeline-item {
-            padding: 20px 0;
+            padding: 15px 0;
             border-left: 3px solid #667eea;
-            padding-left: 30px;
+            padding-left: 20px;
             position: relative;
         }
 
         .timeline-item::before {
             content: "";
-            width: 12px;
-            height: 12px;
+            width: 10px;
+            height: 10px;
             background: #667eea;
             border-radius: 50%;
             position: absolute;
-            left: -7px;
-            top: 25px;
+            left: -6px;
+            top: 20px;
         }
 
         .timeline-item h3 {
             color: #667eea;
-            margin-bottom: 10px;
-            font-size: 1.1em;
+            margin-bottom: 8px;
+            font-size: 1em;
         }
 
         /* Gallery */
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 12px;
         }
 
         .gallery-item {
             position: relative;
-            border-radius: 12px;
+            border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
             transition: transform 0.3s;
         }
 
         .gallery-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
         }
 
         .gallery-item img {
             width: 100%;
-            height: 200px;
+            height: 180px;
             object-fit: cover;
             cursor: pointer;
         }
@@ -440,35 +420,62 @@
             bottom: 0;
             left: 0;
             right: 0;
-            padding: 10px;
+            padding: 8px;
             background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
             color: white;
-            font-size: 0.9em;
+            font-size: 0.85em;
+        }
+
+        /* Stats - 紧凑优化 */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 10px;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 20px 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            color: white;
+            transition: transform 0.3s;
+        }
+
+        .stat-value {
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 3px;
+        }
+
+        .stat-label {
+            font-size: 0.85em;
+            opacity: 0.9;
         }
 
         /* Interactive Buttons */
         .action-buttons {
             display: flex;
-            gap: 15px;
+            gap: 12px;
             justify-content: center;
             flex-wrap: wrap;
-            margin-top: 20px;
+            margin-top: 15px;
         }
 
         .action-btn {
-            padding: 15px 30px;
+            padding: 12px 25px;
             background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
             border: none;
-            border-radius: 25px;
-            font-size: 1em;
+            border-radius: 20px;
             cursor: pointer;
+            font-size: 0.95em;
             transition: all 0.3s;
         }
 
         .action-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
         }
 
         .action-btn:active {
@@ -481,10 +488,10 @@
 
         .message-box {
             display: none;
-            margin-top: 20px;
-            padding: 20px;
+            margin-top: 15px;
+            padding: 15px;
             background: #f0f0f0;
-            border-radius: 15px;
+            border-radius: 12px;
             border-left: 4px solid #667eea;
         }
 
@@ -501,10 +508,10 @@
         /* Search Results */
         .search-results {
             display: none;
-            margin-top: 20px;
+            margin-top: 15px;
             background: white;
-            border-radius: 15px;
-            padding: 20px;
+            border-radius: 12px;
+            padding: 15px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
         }
 
@@ -514,12 +521,12 @@
 
         .search-results h3 {
             color: #667eea;
-            margin-bottom: 15px;
-            font-size: 1.1em;
+            margin-bottom: 12px;
+            font-size: 1em;
         }
 
         .search-result-item {
-            padding: 15px;
+            padding: 12px;
             border-bottom: 1px solid #eee;
             cursor: pointer;
             transition: background 0.3s;
@@ -537,15 +544,15 @@
 
         .search-result-content {
             color: #666;
-            font-size: 0.9em;
+            font-size: 0.85em;
         }
 
         /* Footer */
         footer {
             text-align: center;
-            padding: 30px;
+            padding: 25px;
             color: white;
-            font-size: 0.9em;
+            font-size: 0.85em;
         }
 
         /* Responsive */
@@ -555,11 +562,11 @@
             }
 
             h1 {
-                font-size: 1.8em;
+                font-size: 1.5em;
             }
 
             .diary-card {
-                flex: 0 0 250px;
+                flex: 0 0 220px;
             }
 
             .diary-card.expanded {
@@ -567,7 +574,11 @@
             }
 
             .gallery-grid {
-                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            }
+
+            .stats {
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
             }
         }
     </style>
@@ -580,7 +591,7 @@
             <h1>小亮的日常</h1>
             <p class="subtitle">玄凤鹦鹉的成长日记</p>
             <div class="version-info" id="versionInfo">
-                📌 加载版本信息...
+                <span id="versionText">加载中...</span>
             </div>
         </header>
 
@@ -597,9 +608,9 @@
         <div class="daily-photo">
             <h2>📸 每日一图</h2>
             <div class="photo-container" id="dailyPhotoContainer">
-                <img src="images/dining-dad-new-1.jpg" alt="每日一图">
+                <img src="images/2026-03-19/001.jpg" alt="每日一图">
             </div>
-            <div class="caption" id="dailyPhotoCaption">和爸爸一起吃饭 - 2026-03-20</div>
+            <div class="caption" id="dailyPhotoCaption">小亮的可爱瞬间 - 2026-03-19</div>
         </div>
 
         <!-- Diary Carousel -->
@@ -703,22 +714,40 @@
 
         // Initialize
         document.addEventListener('DOMContentLoaded', function() {
-            loadData();
             loadVersions();
+            loadData();
         });
 
         // Load Versions
-        async function loadVersions() {
+        function loadVersions() {
             try {
-                const response = await fetch('data/versions.json');
-                appData.versions = await response.json();
-                const versionInfo = document.getElementById('versionInfo');
-                if (versionInfo && appData.versions.currentVersion) {
-                    versionInfo.innerHTML = `📌 版本 ${appData.versions.currentVersion} | 最后更新：${appData.versions.updateDate}`;
-                }
+                fetch('data/versions.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        appData.versions = data;
+                        updateVersionDisplay();
+                    })
+                    .catch(error => {
+                        console.log('No version info yet, using defaults');
+                        showDefaultVersion();
+                    });
             } catch (error) {
-                console.log('No version info yet');
+                showDefaultVersion();
             }
+        }
+
+        function updateVersionDisplay() {
+            const versionText = document.getElementById('versionText');
+            if (versionText && appData.versions.currentVersion) {
+                versionText.textContent = `📌 版本 ${appData.versions.currentVersion} | ${appData.versions.updateDate}`;
+            } else {
+                versionText.textContent = '📌 v1.1 | 2026-03-21';
+            }
+        }
+
+        function showDefaultVersion() {
+            const versionText = document.getElementById('versionText');
+            versionText.textContent = '📌 v1.1 | 2026-03-21';
         }
 
         // Index all content for search
@@ -744,15 +773,21 @@
         }
 
         // Load Data
-        async function loadData() {
+        function loadData() {
             try {
-                const response = await fetch('data/diary.json');
-                appData = await response.json();
-                indexContent();
-                renderDiaryCarousel();
-                renderGallery();
-                updateStats();
-                loadRandomDailyPhoto();
+                fetch('data/diary.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        appData = data;
+                        indexContent();
+                        renderDiaryCarousel();
+                        renderGallery();
+                        updateStats();
+                        loadRandomDailyPhoto();
+                    })
+                    .catch(error => {
+                        console.error('Error loading data:', error);
+                    });
             } catch (error) {
                 console.error('Error loading data:', error);
             }
@@ -766,8 +801,10 @@
             appData.diary.forEach((entry, index) => {
                 const card = document.createElement('div');
                 card.className = 'diary-card';
+                const coverSrc = entry.images && entry.images.length > 0 ? entry.images[0] : 'https://via.placeholder.com/180x180?text=小亮';
+                
                 card.innerHTML = `
-                    <img class="diary-cover" src="${entry.images[0] || ''}" alt="${entry.title || '日记'}">
+                    <img class="diary-cover" src="${coverSrc}" alt="${entry.title || '日记'}">
                     <div class="diary-info">
                         <div class="diary-date">${entry.date} • 第 ${entry.day}天</div>
                         <div class="diary-title">${entry.title || '成长日记'}</div>
@@ -795,16 +832,16 @@
             if (card.classList.contains('expanded')) {
                 card.classList.remove('expanded');
                 // 恢复原来的宽度
-                allCards.forEach(c => c.style.flex = '0 0 300px');
+                allCards.forEach(c => c.style.flex = '0 0 280px');
             } else {
                 // 关闭其他所有卡片
                 allCards.forEach(c => {
                     c.classList.remove('expanded');
-                    c.style.flex = '0 0 300px';
+                    c.style.flex = '0 0 280px';
                 });
                 // 展开当前卡片
                 card.classList.add('expanded');
-                card.style.flex = '0 0 800px';
+                card.style.flex = '0 0 700px';
                 
                 // 滚动到视野内
                 card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
@@ -907,7 +944,7 @@
                 "你好呀！👋",
                 "小亮在听~ 🎵",
                 "咕咕咕~ 小亮饿了 🌾",
-                "啾啾啾啾~ 小亮开心！💕"
+                "啾啾啾啾啾~ 小亮开心！💕"
             ];
             const message = messages[Math.floor(Math.random() * messages.length)];
             showMessage(message);
