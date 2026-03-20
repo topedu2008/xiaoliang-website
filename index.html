@@ -29,13 +29,12 @@
         /* Header */
         header {
             text-align: center;
-            padding: 30px 20px;
+            padding: 25px 20px;
             background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
             margin-bottom: 20px;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
             animation: fadeInDown 0.8s ease-out;
-            position: relative;
         }
 
         .logo {
@@ -67,13 +66,59 @@
             margin-bottom: 12px;
         }
 
+        /* Version Info with Updates - 三行滚动 */
+        .version-section {
+            margin-top: 15px;
+        }
+
         .version-info {
             font-size: 0.85em;
             color: #666;
-            padding: 6px 14px;
+            padding: 8px 14px;
             background: #f5f5f5;
             border-radius: 8px;
             display: inline-block;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .version-info:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .version-updates {
+            margin-top: 12px;
+            background: linear-gradient(135deg, #667eea20, #764ba220);
+            border-radius: 10px;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .version-updates h4 {
+            color: #667eea;
+            font-size: 0.9em;
+            margin-bottom: 8px;
+        }
+
+        .updates-list {
+            list-style: none;
+        }
+
+        .updates-list li {
+            font-size: 0.8em;
+            color: #555;
+            padding: 4px 0;
+            padding-left: 15px;
+            position: relative;
+        }
+
+        .updates-list li::before {
+            content: "➜";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-size: 0.7em;
         }
 
         @keyframes fadeInDown {
@@ -182,137 +227,186 @@
             }
         }
 
-        /* Diary Carousel - Left Right Scroll */
-        .diary-carousel {
+        /* Diary Section - 类似1.0版本 */
+        .diary-section {
             background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
-            padding: 30px;
+            padding: 25px;
             margin-bottom: 20px;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
             animation: fadeInUp 0.6s ease-out;
         }
 
-        .diary-carousel h2 {
+        .diary-section h2 {
             color: #667eea;
             margin-bottom: 20px;
-            font-size: 1.5em;
+            font-size: 1.3em;
             text-align: center;
         }
 
-        .carousel-container {
-            position: relative;
-            overflow: hidden;
-            padding: 15px 0;
-        }
-
-        .carousel-track {
+        .diary-list {
             display: flex;
-            gap: 15px;
-            overflow-x: auto;
-            scroll-behavior: smooth;
-            padding: 15px 0;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-            animation: fadeInUp 0.8s ease-out;
+            flex-direction: column;
+            gap: 12px;
         }
 
-        .carousel-track::-webkit-scrollbar {
-            display: none;
-        }
-
-        .diary-card {
-            flex: 0 0 280px;
-            background: white;
+        .diary-item {
+            background: #f9f9f9;
             border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .diary-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
-        }
-
-        .diary-card.expanded {
-            flex: 0 0 700px;
-        }
-
-        .diary-cover {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            cursor: pointer;
-        }
-
-        .diary-info {
             padding: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border-left: 4px solid #667eea;
         }
 
-        .diary-date {
+        .diary-item:hover {
+            background: #667eea10;
+            transform: translateX(5px);
+        }
+
+        .diary-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .diary-item-date {
             font-size: 0.85em;
             color: #667eea;
             font-weight: bold;
-            margin-bottom: 8px;
         }
 
-        .diary-title {
-            font-size: 1.1em;
+        .diary-item-day {
+            font-size: 0.8em;
+            color: #999;
+            background: #eee;
+            padding: 2px 8px;
+            border-radius: 10px;
+        }
+
+        .diary-item-title {
+            font-size: 1em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .diary-item-preview {
+            color: #666;
+            font-size: 0.85em;
+            line-height: 1.4;
+        }
+
+        /* Modal for Diary Detail */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .modal.show {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 40px;
+            padding-bottom: 40px;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 20px;
+            max-width: 600px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: modalSlideIn 0.3s ease-out;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 28px;
+            color: #999;
+            cursor: pointer;
+            z-index: 10;
+            width: 36px;
+            height: 36px;
+            background: #f5f5f5;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 36px;
+            transition: all 0.3s;
+        }
+
+        .modal-close:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .modal-body {
+            padding: 25px;
+        }
+
+        .modal-date {
+            color: #667eea;
+            font-size: 0.9em;
             font-weight: bold;
             margin-bottom: 8px;
+        }
+
+        .modal-title {
             color: #333;
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 15px;
         }
 
-        .diary-preview {
-            color: #666;
-            font-size: 0.9em;
-            line-height: 1.5;
+        .modal-content-list {
+            list-style: none;
         }
 
-        .diary-content {
-            display: none;
-            padding: 0 15px 15px;
-            background: #f9f9f9;
-            margin: 0 -15px -15px -15px;
-            border-top: 1px solid #eee;
+        .modal-content-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            line-height: 1.6;
         }
 
-        .diary-card.expanded .diary-content {
-            display: block;
-        }
-
-        .diary-content h3 {
-            color: #667eea;
-            margin-bottom: 10px;
-            font-size: 1em;
-        }
-
-        .diary-content ul {
-            padding-left: 20px;
-            margin: 5px 0;
-            line-height: 1.5;
-        }
-
-        .diary-images {
-            margin-top: 12px;
-            display: none;
-            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-            gap: 8px;
-        }
-
-        .diary-card.expanded .diary-images {
+        .modal-images {
+            margin-top: 15px;
             display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 10px;
         }
 
-        .diary-images img {
+        .modal-images img {
             width: 100%;
-            border-radius: 6px;
+            border-radius: 8px;
             cursor: pointer;
             transition: transform 0.3s;
         }
 
-        .diary-images img:hover {
+        .modal-images img:hover {
             transform: scale(1.05);
         }
 
@@ -320,7 +414,7 @@
         .section {
             background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
-            padding: 30px;
+            padding: 25px;
             margin-bottom: 20px;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
             animation: fadeInUp 0.6s ease-out;
@@ -329,7 +423,7 @@
         .section h2 {
             color: #667eea;
             margin-bottom: 20px;
-            font-size: 1.5em;
+            font-size: 1.3em;
             border-bottom: 3px solid #667eea;
             padding-bottom: 10px;
         }
@@ -391,8 +485,8 @@
         /* Gallery */
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-            gap: 12px;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 10px;
         }
 
         .gallery-item {
@@ -401,6 +495,7 @@
             overflow: hidden;
             box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
             transition: transform 0.3s;
+            aspect-ratio: 1;
         }
 
         .gallery-item:hover {
@@ -410,7 +505,7 @@
 
         .gallery-item img {
             width: 100%;
-            height: 180px;
+            height: 100%;
             object-fit: cover;
             cursor: pointer;
         }
@@ -423,54 +518,60 @@
             padding: 8px;
             background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
             color: white;
-            font-size: 0.85em;
+            font-size: 0.75em;
+            text-align: center;
         }
 
         /* Stats - 紧凑优化 */
         .stats {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 10px;
         }
 
         .stat-card {
             text-align: center;
-            padding: 20px 15px;
+            padding: 15px 10px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             border-radius: 12px;
             color: white;
             transition: transform 0.3s;
         }
 
+        .stat-card:hover {
+            transform: scale(1.02);
+        }
+
         .stat-value {
-            font-size: 2em;
+            font-size: 1.8em;
             font-weight: bold;
             margin-bottom: 3px;
         }
 
         .stat-label {
-            font-size: 0.85em;
+            font-size: 0.8em;
             opacity: 0.9;
         }
 
-        /* Interactive Buttons */
+        /* Interactive Buttons - 带计数 */
         .action-buttons {
-            display: flex;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
             gap: 12px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 15px;
         }
 
         .action-btn {
-            padding: 12px 25px;
+            padding: 15px 20px;
             background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
             border: none;
-            border-radius: 20px;
+            border-radius: 15px;
             cursor: pointer;
             font-size: 0.95em;
             transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
         .action-btn:hover {
@@ -482,8 +583,18 @@
             transform: translateY(0);
         }
 
-        .action-btn.secondary {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        .action-btn .btn-text {
+            flex: 1;
+            text-align: left;
+        }
+
+        .action-btn .btn-count {
+            background: rgba(255, 255, 255, 0.3);
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            min-width: 35px;
+            text-align: center;
         }
 
         .message-box {
@@ -493,6 +604,7 @@
             background: #f0f0f0;
             border-radius: 12px;
             border-left: 4px solid #667eea;
+            text-align: center;
         }
 
         .message-box.show {
@@ -555,30 +667,56 @@
             font-size: 0.85em;
         }
 
+        /* Progress Toast */
+        .progress-toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-size: 0.9em;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            z-index: 2000;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .progress-toast.show {
+            opacity: 1;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .container {
-                padding: 15px;
+                padding: 12px;
             }
 
             h1 {
                 font-size: 1.5em;
             }
 
-            .diary-card {
-                flex: 0 0 220px;
-            }
-
-            .diary-card.expanded {
-                flex: 0 0 100%;
-            }
-
-            .gallery-grid {
-                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            .action-buttons {
+                grid-template-columns: 1fr;
             }
 
             .stats {
-                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .modal-content {
+                margin: 10px;
+                max-height: 95vh;
+            }
+
+            .modal-body {
+                padding: 20px;
             }
         }
     </style>
@@ -590,8 +728,20 @@
             <div class="logo" id="logo">🐦</div>
             <h1>小亮的日常</h1>
             <p class="subtitle">玄凤鹦鹉的成长日记</p>
-            <div class="version-info" id="versionInfo">
-                <span id="versionText">加载中...</span>
+            
+            <!-- Version Info -->
+            <div class="version-section">
+                <div class="version-info" id="versionInfo">
+                    <span id="versionText">📌 v1.2 | 2026-03-21</span>
+                </div>
+                <div class="version-updates">
+                    <h4>📝 最近更新：</h4>
+                    <ul class="updates-list">
+                        <li>新增小互动计数器，互动更有趣</li>
+                        <li>新增给小亮点赞功能</li>
+                        <li>成长数据与互动联动</li>
+                    </ul>
+                </div>
             </div>
         </header>
 
@@ -613,13 +763,11 @@
             <div class="caption" id="dailyPhotoCaption">小亮的可爱瞬间 - 2026-03-19</div>
         </div>
 
-        <!-- Diary Carousel -->
-        <section class="diary-carousel">
+        <!-- Diary Section - 类似1.0版 -->
+        <section class="diary-section">
             <h2>📅 成长日记</h2>
-            <div class="carousel-container">
-                <div class="carousel-track" id="diaryCarousel">
-                    <!-- Diaries will be loaded here -->
-                </div>
+            <div class="diary-list" id="diaryList">
+                <!-- Diaries will be loaded here -->
             </div>
         </section>
 
@@ -684,13 +832,26 @@
             </div>
         </section>
 
-        <!-- Interactive -->
+        <!-- Interactive - 带计数 -->
         <section class="section">
             <h2>🎮 小互动</h2>
             <div class="action-buttons">
-                <button class="action-btn" onclick="sayHi()">👋 打招呼</button>
-                <button class="action-btn secondary" onclick="singSong()">🎵 听小亮唱歌</button>
-                <button class="action-btn secondary" onclick="performTrick()">🎭 小亮表演</button>
+                <button class="action-btn" onclick="handleInteraction('greet')">
+                    <span class="btn-text">👋 打招呼</span>
+                    <span class="btn-count" id="countGreet">0</span>
+                </button>
+                <button class="action-btn" onclick="handleInteraction('sing')">
+                    <span class="btn-text">🎵 听小亮唱歌</span>
+                    <span class="btn-count" id="countSing">0</span>
+                </button>
+                <button class="action-btn" onclick="handleInteraction('trick')">
+                    <span class="btn-text">🎭 小亮表演</span>
+                    <span class="btn-count" id="countTrick">0</span>
+                </button>
+                <button class="action-btn" onclick="handleInteraction('like')">
+                    <span class="btn-text">❤️ 给小亮点赞</span>
+                    <span class="btn-count" id="countLike">0</span>
+                </button>
             </div>
             <div class="message-box" id="messageBox"></div>
         </section>
@@ -702,74 +863,198 @@
         </footer>
     </div>
 
+    <!-- Modal for Diary Detail -->
+    <div class="modal" id="diaryModal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeDiaryModal()">&times;</span>
+            <div class="modal-body" id="modalBody">
+                <!-- Content loaded dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Progress Toast -->
+    <div class="progress-toast" id="progressToast"></div>
+
     <script>
-        // Data loading
+        // Data storage key
+        const STORAGE_KEY = 'xiaoliang_interaction_data';
+        const STATS_KEY = 'xiaoliang_stats_data';
+
+        // Interaction counts
+        let interactionData = {
+            greet: 0,
+            sing: 0,
+            trick: 0,
+            like: 0,
+            total: 0
+        };
+
+        // Base stats (will be updated by interactions)
+        let baseStats = {
+            age: 5,
+            scales: 0,
+            trust: 1,
+            cute: 100
+        };
+
+        // App data for content
         let appData = {
             stats: {},
             diary: [],
             gallery: [],
-            allContent: [],
-            versions: {}
+            allContent: []
         };
 
         // Initialize
         document.addEventListener('DOMContentLoaded', function() {
-            loadVersions();
+            loadInteractionData();
             loadData();
         });
 
-        // Load Versions
-        function loadVersions() {
+        // Load interaction data from localStorage
+        function loadInteractionData() {
             try {
-                fetch('data/versions.json')
-                    .then(response => response.json())
-                    .then(data => {
-                        appData.versions = data;
-                        updateVersionDisplay();
-                    })
-                    .catch(error => {
-                        console.log('No version info yet, using defaults');
-                        showDefaultVersion();
-                    });
-            } catch (error) {
-                showDefaultVersion();
+                const saved = localStorage.getItem(STORAGE_KEY);
+                if (saved) {
+                    interactionData = JSON.parse(saved);
+                }
+                const savedStats = localStorage.getItem(STATS_KEY);
+                if (savedStats) {
+                    baseStats = JSON.parse(savedStats);
+                }
+            } catch (e) {
+                console.log('No saved data');
+            }
+            updateInteractionCounts();
+            updateStatsDisplay();
+        }
+
+        // Save interaction data
+        function saveInteractionData() {
+            try {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(interactionData));
+                localStorage.setItem(STATS_KEY, JSON.stringify(baseStats));
+            } catch (e) {
+                console.log('Could not save data');
             }
         }
 
-        function updateVersionDisplay() {
-            const versionText = document.getElementById('versionText');
-            if (versionText && appData.versions.currentVersion) {
-                versionText.textContent = `📌 版本 ${appData.versions.currentVersion} | ${appData.versions.updateDate}`;
-            } else {
-                versionText.textContent = '📌 v1.1 | 2026-03-21';
+        // Update interaction counts display
+        function updateInteractionCounts() {
+            document.getElementById('countGreet').textContent = interactionData.greet;
+            document.getElementById('countSing').textContent = interactionData.sing;
+            document.getElementById('countTrick').textContent = interactionData.trick;
+            document.getElementById('countLike').textContent = interactionData.like;
+        }
+
+        // Update stats display
+        function updateStatsDisplay() {
+            document.getElementById('statAge').textContent = baseStats.age;
+            document.getElementById('statScales').textContent = baseStats.scales;
+            document.getElementById('statTrust').textContent = baseStats.trust;
+            document.getElementById('statCute').textContent = baseStats.cute;
+        }
+
+        // Handle interaction
+        function handleInteraction(type) {
+            // Increment count
+            interactionData[type]++;
+            interactionData.total++;
+
+            // Update display
+            updateInteractionCounts();
+
+            // Show message based on type
+            const messages = {
+                greet: [
+                    "啾啾~ 小亮在~ 🐦",
+                    "你好呀！👋 看到你小亮好开心！",
+                    "小亮在听~ 🎵",
+                    "咕咕咕~ 小亮饿了 🌾",
+                    "啾啾啾啾啾~ 小亮开心！💕"
+                ],
+                sing: [
+                    "啾啾~啾啾~ 🎵",
+                    "小亮正在练习唱歌！🎶",
+                    "♪ 小亮想学唱歌了！啾啾啾啾~",
+                    "🎵 跟着小亮一起唱~"
+                ],
+                trick: [
+                    "小亮在翻跟头！🐦",
+                    "小亮在歪头看你！👀",
+                    "小亮在眨眼睛！😉",
+                    "小亮在拍翅膀！✨",
+                    "小亮在歪头观察！🔍"
+                ],
+                like: [
+                    "谢谢你的点赞！❤️ 小亮超开心！",
+                    "爱你哟~ 💕💕💕",
+                    "小亮收到小心心了！❤️❤️❤️",
+                    "么么哒！😘 小亮爱你！"
+                ]
+            };
+
+            const typeMessages = messages[type];
+            const message = typeMessages[Math.floor(Math.random() * typeMessages.length)];
+            showMessage(message);
+
+            // Check for stats update
+            checkStatsUpdate(type);
+
+            // Save data
+            saveInteractionData();
+        }
+
+        // Check if stats need to be updated
+        function checkStatsUpdate(type) {
+            let toastMessage = '';
+
+            // 打招呼 3次 -> 信任等级+1
+            if (type === 'greet' && interactionData.greet > 0 && interactionData.greet % 3 === 0) {
+                baseStats.trust++;
+                toastMessage = '🎉 打招呼累计3次，信任等级+1！';
+            }
+
+            // 听唱歌 3次 -> 音阶数+1
+            if (type === 'sing' && interactionData.sing > 0 && interactionData.sing % 3 === 0) {
+                baseStats.scales++;
+                toastMessage = '🎵 听歌累计3次，音阶数+1！';
+            }
+
+            // 表演或点赞 3次 -> 可爱指数+1
+            if ((type === 'trick' || type === 'like') && 
+                ((type === 'trick' && interactionData.trick % 3 === 0) || 
+                 (type === 'like' && interactionData.like % 3 === 0))) {
+                baseStats.cute = Math.min(999, baseStats.cute + 1);
+                toastMessage = '✨ 互动累计3次，可爱指数+1！';
+            }
+
+            if (toastMessage) {
+                showToast(toastMessage);
+                updateStatsDisplay();
             }
         }
 
-        function showDefaultVersion() {
-            const versionText = document.getElementById('versionText');
-            versionText.textContent = '📌 v1.1 | 2026-03-21';
+        // Show toast
+        function showToast(text) {
+            const toast = document.getElementById('progressToast');
+            toast.textContent = text;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2500);
         }
 
-        // Index all content for search
-        function indexContent() {
-            appData.allContent = [];
+        // Show message
+        function showMessage(text) {
+            const messageBox = document.getElementById('messageBox');
+            messageBox.textContent = text;
+            messageBox.classList.add('show');
             
-            appData.diary.forEach(entry => {
-                appData.allContent.push({
-                    type: 'diary',
-                    date: entry.date,
-                    title: entry.title || '成长日记',
-                    content: entry.content.join(' ')
-                });
-            });
-
-            appData.gallery.forEach(item => {
-                appData.allContent.push({
-                    type: 'photo',
-                    caption: item.caption,
-                    src: item.src
-                });
-            });
+            setTimeout(() => {
+                messageBox.classList.remove('show');
+            }, 3000);
         }
 
         // Load Data
@@ -779,10 +1064,8 @@
                     .then(response => response.json())
                     .then(data => {
                         appData = data;
-                        indexContent();
-                        renderDiaryCarousel();
+                        renderDiaryList();
                         renderGallery();
-                        updateStats();
                         loadRandomDailyPhoto();
                     })
                     .catch(error => {
@@ -793,60 +1076,62 @@
             }
         }
 
-        // Render Diary Carousel
-        function renderDiaryCarousel() {
-            const carousel = document.getElementById('diaryCarousel');
-            carousel.innerHTML = '';
+        // Render Diary List - 类似1.0版
+        function renderDiaryList() {
+            const list = document.getElementById('diaryList');
+            list.innerHTML = '';
 
             appData.diary.forEach((entry, index) => {
-                const card = document.createElement('div');
-                card.className = 'diary-card';
-                const coverSrc = entry.images && entry.images.length > 0 ? entry.images[0] : 'https://via.placeholder.com/180x180?text=小亮';
+                const item = document.createElement('div');
+                item.className = 'diary-item';
+                item.onclick = () => openDiaryModal(index);
                 
-                card.innerHTML = `
-                    <img class="diary-cover" src="${coverSrc}" alt="${entry.title || '日记'}">
-                    <div class="diary-info">
-                        <div class="diary-date">${entry.date} • 第 ${entry.day}天</div>
-                        <div class="diary-title">${entry.title || '成长日记'}</div>
-                        <div class="diary-preview">${entry.content[0]}</div>
+                item.innerHTML = `
+                    <div class="diary-item-header">
+                        <span class="diary-item-date">${entry.date}</span>
+                        <span class="diary-item-day">第 ${entry.day} 天</span>
                     </div>
-                    <div class="diary-content">
-                        <h3>${entry.title || '成长日记'}</h3>
-                        <ul>
-                            ${entry.content.map(item => `<li>${item}</li>`).join('')}
-                        </ul>
-                        <div class="diary-images">
-                            ${entry.images.map(img => `<img src="${img}" alt="日记照片">`).join('')}
-                        </div>
-                    </div>
+                    <div class="diary-item-title">${entry.title || '成长日记'}</div>
+                    <div class="diary-item-preview">${entry.content[0]}</div>
                 `;
-                card.onclick = () => toggleDiaryCard(card);
-                carousel.appendChild(card);
+                list.appendChild(item);
             });
         }
 
-        // Toggle Diary Card (expand/collapse)
-        function toggleDiaryCard(card) {
-            const allCards = document.querySelectorAll('.diary-card');
-            
-            if (card.classList.contains('expanded')) {
-                card.classList.remove('expanded');
-                // 恢复原来的宽度
-                allCards.forEach(c => c.style.flex = '0 0 280px');
-            } else {
-                // 关闭其他所有卡片
-                allCards.forEach(c => {
-                    c.classList.remove('expanded');
-                    c.style.flex = '0 0 280px';
-                });
-                // 展开当前卡片
-                card.classList.add('expanded');
-                card.style.flex = '0 0 700px';
-                
-                // 滚动到视野内
-                card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-            }
+        // Open diary modal
+        function openDiaryModal(index) {
+            const entry = appData.diary[index];
+            const modal = document.getElementById('diaryModal');
+            const body = document.getElementById('modalBody');
+
+            body.innerHTML = `
+                <div class="modal-date">${entry.date} • 第 ${entry.day} 天</div>
+                <div class="modal-title">${entry.title || '成长日记'}</div>
+                <ul class="modal-content-list">
+                    ${entry.content.map(item => `<li>${item}</li>`).join('')}
+                </ul>
+                ${entry.images && entry.images.length > 0 ? `
+                    <div class="modal-images">
+                        ${entry.images.map(img => `<img src="${img}" alt="日记照片">`).join('')}
+                    </div>
+                ` : ''}
+            `;
+
+            modal.classList.add('show');
         }
+
+        // Close diary modal
+        function closeDiaryModal() {
+            const modal = document.getElementById('diaryModal');
+            modal.classList.remove('show');
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('diaryModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeDiaryModal();
+            }
+        });
 
         // Render Gallery
         function renderGallery() {
@@ -862,14 +1147,6 @@
                 `;
                 grid.appendChild(div);
             });
-        }
-
-        // Update Stats
-        function updateStats() {
-            document.getElementById('statAge').textContent = appData.stats.age || 0;
-            document.getElementById('statScales').textContent = appData.stats.scales || 0;
-            document.getElementById('statTrust').textContent = appData.stats.trust || 0;
-            document.getElementById('statCute').textContent = appData.stats.cute || 100;
         }
 
         // Load Random Daily Photo
@@ -894,19 +1171,29 @@
                 return;
             }
 
-            // Search in all content
             const results = [];
 
             // Search diaries
-            appData.allContent.forEach(item => {
-                const content = (item.content || '').toLowerCase();
-                const title = (item.title || '').toLowerCase();
+            appData.diary.forEach(entry => {
+                const content = entry.content.join(' ').toLowerCase();
+                const title = (entry.title || '').toLowerCase();
                 if (content.includes(query) || title.includes(query)) {
                     results.push({
-                        type: item.type,
-                        title: item.title || '成长日记',
-                        date: item.date || '',
-                        content: item.content || ''
+                        type: 'diary',
+                        title: entry.title || '成长日记',
+                        date: entry.date,
+                        content: entry.content[0]
+                    });
+                }
+            });
+
+            // Search gallery
+            appData.gallery.forEach(item => {
+                if (item.caption.toLowerCase().includes(query)) {
+                    results.push({
+                        type: 'photo',
+                        title: '相册',
+                        content: item.caption
                     });
                 }
             });
@@ -937,50 +1224,15 @@
             }
         });
 
-        // Interactive Functions
-        function sayHi() {
+        // Logo click
+        document.getElementById('logo').addEventListener('click', function() {
             const messages = [
-                "啾啾~ 小亮在~ 🐦",
-                "你好呀！👋",
-                "小亮在听~ 🎵",
-                "咕咕咕~ 小亮饿了 🌾",
-                "啾啾啾啾啾~ 小亮开心！💕"
+                "啾啾~ 🐦",
+                "小亮在！💕",
+                "看到你了好开心！👋"
             ];
             const message = messages[Math.floor(Math.random() * messages.length)];
             showMessage(message);
-        }
-
-        function singSong() {
-            showMessage("啾啾~啾啾~ 啾啾~ 小亮在唱歌！🎵");
-            showMessage("🎵♪ 小亮想学唱歌了！啾啾啾啾~");
-        }
-
-        function performTrick() {
-            const tricks = [
-                "小亮在翻跟头！🐦",
-                "小亮在歪头看你！👀",
-                "小亮在眨眼睛！😉",
-                "小亮在拍翅膀！✨",
-                "小亮在歪头观察！🔍"
-            ];
-            const trick = tricks[Math.floor(Math.random() * tricks.length)];
-            showMessage(trick);
-        }
-
-        // Show Message
-        function showMessage(text) {
-            const messageBox = document.getElementById('messageBox');
-            messageBox.textContent = text;
-            messageBox.classList.add('show');
-            
-            setTimeout(() => {
-                messageBox.classList.remove('show');
-            }, 3000);
-        }
-
-        // Logo click
-        document.getElementById('logo').addEventListener('click', function() {
-            sayHi();
         });
     </script>
 </body>
