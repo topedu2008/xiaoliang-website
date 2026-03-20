@@ -839,7 +839,7 @@
 
         <!-- Interactive - 带计数 -->
         <section class="section">
-            <h2>🎮 小互动</h2>
+            <h2>🎮 小互动 <span style="font-size:0.7em; color:#667eea;">（总互动 <span id="totalInteractions">0</span> 次）</span></h2>
             <div class="action-buttons">
                 <button class="action-btn" onclick="handleInteraction('greet')">
                     <span class="btn-text">👋 打招呼</span>
@@ -887,6 +887,18 @@
         const STORAGE_KEY = 'xiaoliang_interaction_data';
         const STATS_KEY = 'xiaoliang_stats_data';
 
+        // GitHub Stats URL (公开仓库直接读取)
+        const GITHUB_STATS_URL = 'https://raw.githubusercontent.com/topedu2008/xiaoliang-website/main/data/interaction-stats.json';
+
+        // Global interaction stats (from GitHub)
+        let globalStats = {
+            totalInteractions: 0,
+            greet: 0,
+            sing: 0,
+            trick: 0,
+            like: 0
+        };
+
         // Interaction counts
         let interactionData = {
             greet: 0,
@@ -916,6 +928,10 @@
         document.addEventListener('DOMContentLoaded', function() {
             loadInteractionData();
             loadData();
+            loadGitHubStats();
+
+            // 每分钟刷新一次 GitHub 数据
+            setInterval(loadGitHubStats, 60000);
         });
 
         // Load interaction data from localStorage
@@ -960,6 +976,30 @@
             document.getElementById('statScales').textContent = baseStats.scales;
             document.getElementById('statTrust').textContent = baseStats.trust;
             document.getElementById('statCute').textContent = baseStats.cute;
+        }
+
+        // Load GitHub stats (从raw URL直接读取)
+        function loadGitHubStats() {
+            fetch(GITHUB_STATS_URL)
+            .then(response => {
+                if (!response.ok) throw new Error('Failed to load GitHub stats');
+                return response.json();
+            })
+            .then(data => {
+                globalStats = data;
+                updateGlobalStatsDisplay();
+            })
+            .catch(error => {
+                console.log('Failed to load GitHub stats:', error);
+            });
+        }
+
+        // Update global stats display
+        function updateGlobalStatsDisplay() {
+            const totalEl = document.getElementById('totalInteractions');
+            if (totalEl && globalStats.totalInteractions !== undefined) {
+                totalEl.textContent = globalStats.totalInteractions;
+            }
         }
 
         // Handle interaction
