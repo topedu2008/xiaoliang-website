@@ -1180,6 +1180,13 @@
             body.innerHTML = `
                 <div class="modal-date">${entry.date} • 第 ${entry.day} 天</div>
                 <div class="modal-title">${entry.title || '成长日记'}</div>
+                ${entry.video ? `
+                    <div class="modal-video" style="margin-bottom:15px;">
+                        <video src="${entry.video}" controls style="width:100%; border-radius:10px; max-height:300px;">
+                            您的浏览器不支持视频播放
+                        </video>
+                    </div>
+                ` : ''}
                 <ul class="modal-content-list">
                     ${entry.content.map(item => `<li>${item}</li>`).join('')}
                 </ul>

@@ -7,6 +7,20 @@
   },
   "diary": [
     {
+      "date": "2026-03-21",
+      "day": 4,
+      "title": "小亮今天给大家打招呼了 👋",
+      "content": [
+        "小亮今天站在自己的家门口，欢迎各位来到我的网站！",
+        "这是小亮第一次通过网站和大家打招呼～",
+        "以后请大家多多关照小亮哦！",
+        "小亮会继续努力学更多技能的！",
+        "欢迎大家来和小亮互动～"
+      ],
+      "images": [],
+      "video": "videos/xiaoliang-20260321.mp4"
+    },
+    {
       "date": "2026-03-18",
       "day": 1,
       "content": [
@@ -104,6 +118,11 @@
       "type": "image",
       "src": "images/dining-dad-new-2.jpg",
       "caption": "和小亮的温馨时光"  
+    },
+    {
+      "type": "video",
+      "src": "videos/xiaoliang-20260321.mp4",
+      "caption": "小亮给大家打招呼啦！👋"
     }
   ]
 }
