@@ -29,18 +29,25 @@
         /* Header */
         header {
             text-align: center;
-            padding: 60px 20px;
+            padding: 40px 20px;
             background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
             animation: fadeInDown 0.8s ease-out;
+            position: relative;
         }
 
         .logo {
-            font-size: 80px;
+            font-size: 70px;
             margin-bottom: 10px;
             animation: bounce 2s infinite;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .logo:hover {
+            transform: scale(1.1);
         }
 
         @keyframes bounce {
@@ -49,31 +56,25 @@
         }
 
         h1 {
-            font-size: 2.5em;
+            font-size: 2.2em;
             color: #667eea;
             margin-bottom: 10px;
         }
 
         .subtitle {
-            font-size: 1.2em;
+            font-size: 1.1em;
             color: #764ba2;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
-        .badges {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .badge {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            padding: 8px 20px;
-            border-radius: 25px;
+        .version-info {
             font-size: 0.9em;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+            color: #666;
+            margin-bottom: 15px;
+            padding: 8px 16px;
+            background: #f5f5f5;
+            border-radius: 10px;
+            display: inline-block;
         }
 
         @keyframes fadeInDown {
@@ -87,14 +88,88 @@
             }
         }
 
-        /* Sections */
-        .section {
+        /* Search Bar */
+        .search-container {
+            max-width: 500px;
+            margin: 0 auto 20px;
+        }
+
+        .search-box {
+            display: flex;
+            gap: 10px;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 12px 20px;
+            border: 2px solid #667eea;
+            border-radius: 25px;
+            font-size: 16px;
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        .search-input:focus {
+            border-color: #764ba2;
+            box-shadow: 0 0 10px rgba(102, 126, 234, 0.3);
+        }
+
+        .search-btn {
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        .search-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        /* Daily Photo of the Day */
+        .daily-photo {
             background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
-            padding: 40px;
-            margin-bottom: 30px;
+            padding: 30px;
+            margin-bottom: 20px;
+            text-align: center;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
             animation: fadeInUp 0.6s ease-out;
+        }
+
+        .daily-photo h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+
+        .daily-photo .photo-container {
+            position: relative;
+            max-width: 600px;
+            margin: 0 auto;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .daily-photo img {
+            width: 100%;
+            display: block;
+            transition: transform 0.3s;
+        }
+
+        .daily-photo img:hover {
+            transform: scale(1.02);
+        }
+
+        .daily-photo .caption {
+            padding: 15px 0;
+            color: #666;
+            font-size: 0.95em;
         }
 
         @keyframes fadeInUp {
@@ -108,406 +183,392 @@
             }
         }
 
-        .section h2 {
-            font-size: 2em;
+        /* Diary Carousel - Left Right Scroll */
+        .diary-carousel {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .diary-carousel h2 {
             color: #667eea;
             margin-bottom: 30px;
+            font-size: 1.8em;
             text-align: center;
-            border-bottom: 3px solid #764ba2;
+        }
+
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+            padding: 20px 0;
+        }
+
+        .carousel-track {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding: 20px 0;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .carousel-track::-webkit-scrollbar {
+            display: none;
+        }
+
+        .diary-card {
+            flex: 0 0 300px;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .diary-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .diary-card.expanded {
+            flex: 0 0 800px;
+        }
+
+        .diary-cover {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            cursor: pointer;
+        }
+
+        .diary-info {
+            padding: 20px;
+        }
+
+        .diary-date {
+            font-size: 0.9em;
+            color: #667eea;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .diary-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .diary-preview {
+            color: #666;
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+
+        .diary-content {
+            display: none;
+            padding: 0 20px 20px;
+            background: #f9f9f9;
+            margin: 0 -20px -20px -20px;
+            border-top: 1px solid #eee;
+        }
+
+        .diary-card.expanded .diary-content {
+            display: block;
+        }
+
+        .diary-images {
+            margin-top: 15px;
+            display: none;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 10px;
+        }
+
+        .diary-card.expanded .diary-images {
+            display: grid;
+        }
+
+        .diary-images img {
+            width: 100%;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .diary-images img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Sections */
+        .section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius:  20px;
+            padding: 40px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .section h2 {
+            color: #667eea;
+            margin-bottom: 30px;
+            font-size: 1.8em;
+            border-bottom: 3px solid #667eea;
             padding-bottom: 15px;
         }
 
         /* Stats */
         .stats {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: 20px;
-            margin-bottom: 30px;
         }
 
-        .stat-item {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            padding: 25px;
-            border-radius: 15px;
+        .stat-card {
             text-align: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease;
+            padding: 30px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            color: white;
+            transition: transform 0.3s;
         }
 
-        .stat-item:hover {
+        .stat-card:hover {
             transform: translateY(-5px);
         }
 
-        .stat-number {
+        .stat-value {
             font-size: 2.5em;
             font-weight: bold;
             margin-bottom: 5px;
         }
 
         .stat-label {
-            font-size: 0.9em;
+            font-size:  0.95em;
             opacity: 0.9;
         }
 
-        /* Care Tips */
-        .care-tips {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-        }
-
-        .tip-card {
-            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
-            padding: 25px;
-            border-radius: 15px;
-            border-left: 5px solid #667eea;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .tip-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-        }
-
-        .tip-card h3 {
-            color: #667eea;
-            margin-bottom: 15px;
-            font-size: 1.3em;
-        }
-
-        .tip-card ul {
+        /* Tips List */
+        .tips-list {
             list-style: none;
-            padding-left: 0;
         }
 
-        .tip-card li {
-            padding: 8px 0;
-            padding-left: 25px;
-            position: relative;
-        }
-
-        .tip-card li:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #667eea;
-            font-weight: bold;
-        }
-
-        /* Training */
-        .training {
-            background: linear-gradient(135deg, #fff5f5, #ffe0e0);
-            padding: 30px;
-            border-radius: 15px;
-            margin-bottom: 25px;
-            border-left: 5px solid #ff6b6b;
-        }
-
-        .training h3 {
-            color: #e55039;
-            margin-bottom: 15px;
-            font-size: 1.2em;
-        }
-
-        .timeline {
-            position: relative;
+        .tips-list li {
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
             padding-left: 30px;
-            margin-left: 20px;
+            position: relative;
         }
 
-        .timeline::before {
-            content: "";
+        .tips-list li::before {
+            content: "•";
+            color: #667eea;
+            font-size: 1.5em;
             position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 3px;
-            background: #667eea;
+            left: 15px;
+        }
+
+        .tips-list li strong {
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        /* Training Timeline */
+        .timeline {
+            list-style: none;
         }
 
         .timeline-item {
+            padding: 20px 0;
+            border-left: 3px solid #667eea;
+            padding-left: 30px;
             position: relative;
-            padding-bottom: 30px;
-            padding-left: 20px;
         }
 
         .timeline-item::before {
             content: "";
-            position: absolute;
-            left: -8px;
-            top: 5px;
-            width: 16px;
-            height: 16px;
+            width: 12px;
+            height: 12px;
             background: #667eea;
             border-radius: 50%;
-            border: 3px solid white;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            position: absolute;
+            left: -7px;
+            top: 25px;
         }
 
-        .timeline-item h4 {
+        .timeline-item h3 {
             color: #667eea;
-            margin-bottom: 10px;
-        }
-
-        /* Daily Logs */
-        .logs {
-            max-height: 600px;
-            overflow-y: auto;
-            padding-right: 10px;
-        }
-
-        .log-entry {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 15px;
-            border-left: 4px solid #667eea;
-            transition: all 0.3s ease;
-        }
-
-        .log-entry:hover {
-            background: #e8f4f8;
-            border-left-color: #764ba2;
-        }
-
-        .log-date {
-            color: #667eea;
-            font-weight: bold;
             margin-bottom: 10px;
             font-size: 1.1em;
         }
 
-        .log-entry ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .log-entry li {
-            padding: 5px 0;
-            padding-left: 20px;
-            position: relative;
-        }
-
-        .log-entry li:before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: #667eea;
-        }
-
         /* Gallery */
-        .gallery {
+        .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
         }
 
         .gallery-item {
-            aspect-ratio: 1;
-            border-radius: 15px;
+            position: relative;
+            border-radius: 12px;
             overflow: hidden;
-            border: 3px solid #667eea;
-            transition: transform 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
         }
 
         .gallery-item:hover {
-            transform: scale(1.05);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
         }
 
         .gallery-item img {
             width: 100%;
-            height: 100%;
+            height: 200px;
             object-fit: cover;
+            cursor: pointer;
         }
 
-        .gallery-placeholder {
-            aspect-ratio: 1;
-            background: linear-gradient(135deg, #ffeaa7, #fdcb6e);
-            border-radius: 15px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: #795548;
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 10px;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: white;
             font-size: 0.9em;
-            text-align: center;
-            padding: 20px;
-            border: 3px dashed #d4a574;
-            transition: all 0.3s ease;
         }
 
-        .gallery-placeholder:hover {
-            transform: scale(1.05);
-            border-color: #ff6b6b;
-        }
-
-        .gallery-placeholder .icon {
-            font-size: 3em;
-            margin-bottom: 10px;
-        }
-
-        /* Video */
-        .video-container {
-            width: 100%;
-            border-radius: 15px;
-            overflow: hidden;
-            margin-top: 10px;
-        }
-
-        .video-container iframe {
-            width: 100%;
-            height: 400px;
-            border: none;
-        }
-
-        /* Interactive Section */
-        .interactive {
-            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
-            padding: 30px;
-            border-radius: 15px;
-            text-align: center;
-        }
-
-        .interaction-box {
+        /* Interactive Buttons */
+        .action-buttons {
             display: flex;
-            gap: 20px;
+            gap: 15px;
             justify-content: center;
             flex-wrap: wrap;
             margin-top: 20px;
         }
 
-        .interaction-btn {
+        .action-btn {
+            padding: 15px 30px;
             background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
             border: none;
-            padding: 15px 30px;
-            border-radius: 30px;
-            font-size: 1.1em;
+            border-radius: 25px;
+            font-size: 1em;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.3s;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
         }
 
-        .interaction-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(102, 126,  234, 0.4);
-        }
-
-        .interaction-btn:active {
+        .action-btn:active {
             transform: translateY(0);
         }
 
-        #response-area {
-            background: white;
-            border: 3px solid #667eea;
-            border-radius: 15px;
-            padding: 30px;
-            margin-top: 30px;
-            min-height: 100px;
-            display: none;
-            animation: fadeIn 0.5s ease;
+        .action-btn.secondary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
 
-        #response-area.show {
+        .message-box {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background: #f0f0f0;
+            border-radius: 15px;
+            border-left: 4px solid #667eea;
+        }
+
+        .message-box.show {
             display: block;
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Search Results */
+        .search-results {
+            display: none;
+            margin-top: 20px;
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-results.show {
+            display: block;
+        }
+
+        .search-results h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .search-result-item {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .search-result-item:hover {
+            background: #f5f5f5;
+        }
+
+        .search-result-title {
+            color: #333;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .search-result-content {
+            color: #666;
+            font-size: 0.9em;
         }
 
         /* Footer */
         footer {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
+            text-align: center;
             padding: 30px;
-            text-align: center;
-            color: #667eea;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        footer p {
-            margin: 10px 0;
-        }
-
-        .heart {
-            color: #ff6b6b;
-            display: inline-block;
-            animation: heartbeat 1.5s infinite;
-        }
-
-        @keyframes heartbeat {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.2); }
-        }
-
-        /* Loading */
-        .loading {
-            text-align: center;
-            padding: 40px;
-            color: #667eea;
-            font-size: 1.2em;
+            color: white;
+            font-size: 0.9em;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            header {
-                padding: 40px 15px;
+            .container {
+                padding: 15px;
             }
 
             h1 {
                 font-size: 1.8em;
             }
 
-            .logo {
-                font-size: 60px;
+            .diary-card {
+                flex: 0 0 250px;
             }
 
-            .badges {
-                flex-direction: column;
-                align-items: center;
+            .diary-card.expanded {
+                flex: 0 0 100%;
             }
 
-            .section {
-                padding: 25px 15px;
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
             }
-
-            .care-tips {
-                grid-template-columns: 1fr;
-            }
-
-            .stats {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .interaction-box {
-                flex-direction: column;
-            }
-
-            .video-container iframe {
-                height: 300px;
-            }
-        }
-
-        /* Scrollbar */
-        .logs::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        .logs::-webkit-scrollbar-track {
-            background: #f1f1f1;
-            border-radius: 10px;
-        }
-
-        .logs::-webkit-scrollbar-thumb {
-            background: #667eea;
-            border-radius: 10px;
-        }
-
-        .logs::-webkit-scrollbar-thumb:hover {
-            background: #764ba2;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
         }
     </style>
 </head>
@@ -515,353 +576,374 @@
     <div class="container">
         <!-- Header -->
         <header>
-            <div class="logo">🐦</div>
+            <div class="logo" id="logo">🐦</div>
             <h1>小亮的日常</h1>
-            <p class="subtitle">一只玄凤鹦鹉的成长日记</p>
-            <div class="badges">
-                <span class="badge">🎵 喜爱唱歌</span>
-                <span class="badge">🐦 5个月大</span>
-                <span class="badge">❤️ 活泼可爱</span>
+            <p class="subtitle">玄凤鹦鹉的成长日记</p>
+            <div class="version-info" id="versionInfo">
+                📌 加载版本信息...
             </div>
         </header>
 
-        <!-- Introduction -->
-        <section class="section">
-            <h2>👋 关于小亮</h2>
-            <div style="text-align: center; font-size: 1.1em; line-height: 1.8;">
-                <p>小亮是一只<span style="color: #667eea; font-weight: bold;">5个月大</span>的玄凤鹦鹉，有着漂亮的<span style="color: #ff6b6b; font-weight: bold;">红色腮红</span>和黄色头顶。</p>
-                <p>它热爱唱歌，正在学习各种美妙的旋律。虽然只有5个月大，但已经展现出惊人的学习能力和活泼的性格！</p>
-                <p>这个网站记录小亮的日常点滴，分享它的成长故事、饲养技巧和训练心得。</p>
-                <p style="margin-top: 15px;">让我们一起见证小亮的成长历程吧！🐦✨</p>
+        <!-- Search -->
+        <div class="search-container">
+            <div class="search-box">
+                <input type="text" class="search-input" id="searchInput" placeholder="搜索小亮的日记、照片、饲养技巧...">
+                <button class="search-btn" onclick="searchSite()">🔍 搜索</button>
             </div>
-        </section>
+            <div class="search-results" id="searchResults"></div>
+        </div>
 
-        <!-- Daily Logs -->
-        <section class="section">
+        <!-- Daily Photo -->
+        <div class="daily-photo">
+            <h2>📸 每日一图</h2>
+            <div class="photo-container" id="dailyPhotoContainer">
+                <img src="images/dining-dad-new-1.jpg" alt="每日一图">
+            </div>
+            <div class="caption" id="dailyPhotoCaption">和爸爸一起吃饭 - 2026-03-20</div>
+        </div>
+
+        <!-- Diary Carousel -->
+        <section class="diary-carousel">
             <h2>📅 成长日记</h2>
-            <div class="logs" id="logs">
-                <div class="loading">加载中...</div>
+            <div class="carousel-container">
+                <div class="carousel-track" id="diaryCarousel">
+                    <!-- Diaries will be loaded here -->
+                </div>
             </div>
         </section>
 
         <!-- Stats -->
         <section class="section">
             <h2>📊 成长数据</h2>
-            <div class="stats" id="stats">
-                <div class="loading">加载中...</div>
+            <div class="stats">
+                <div class="stat-card">
+                    <div class="stat-value" id="statAge">5</div>
+                    <div class="stat-label">月龄</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="statScales">0</div>
+                    <div class="stat-label">音阶数</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="statTrust">1</div>
+                    <div class="stat-label">信任等级</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="statCute">100</div>
+                    <div class="stat-label">可爱指数</div>
+                </div>
             </div>
         </section>
 
-        <!-- Care Tips -->
+        <!-- Care Guide -->
         <section class="section">
             <h2>🌾 饲养技巧</h2>
-            <div class="care-tips">
-                <div class="tip-card">
-                    <h3>🌾 科学饮食</h3>
-                    <ul>
-                        <li><strong>主食（50%）</strong>：黄谷子、加纳利子、苏子混合</li>
-                        <li><strong>副食（30%）</strong>：胡萝卜、青菜、苹果、梨</li>
-                        <li><strong>补充（20%）</strong>：墨鱼骨（补钙）、煮熟鸡蛋（每周1-2次）</li>
-                        <li>⚠️ <strong>切忌单一饮食</strong>：不要只喂小米！</li>
-                    </ul>
-                </div>
-
-                <div class="tip-card">
-                    <h3>🏠 环境要求</h3>
-                    <ul>
-                        <li>笼子尺寸：至少 40x40x60cm</li>
-                        <li>温度：18-28°C</li>
-                        <li>湿度：50-70%</li>
-                        <li>每天提供新鲜饮用水</li>
-                        <li>保持良好通风，避免风口</li>
-                    </ul>
-                </div>
-
-                <div class="tip-card">
-                    <h3>🧼 日常护理</h3>
-                    <ul>
-                        <li>每天清理笼子，更换水碗</li>
-                        <li>每周彻底清洁和消毒</li>
-                        <li>定期检查羽毛和指甲</li>
-                        <li>每天放出笼子活动1-2小时</li>
-                        <li>提供玩具防止无聊</li>
-                    </ul>
-                </div>
-
-                <div class="tip-card">
-                    <h3>⚠️ 禁忌食物</h3>
-                    <ul>
-                        <li>鳄梨、巧克力、咖啡</li>
-                        <li>油炸食品、辛辣食物</li>
-                        <li>生豆类、洋葱、大蒜</li>
-                        <li>牛奶、乳制品</li>
-                    </ul>
-                </div>
-            </div>
+            <ul class="tips-list">
+                <li><strong>饮食结构：</strong>50% 谷物粮（黄谷子、加纳利子、苏子）+ 30% 蔬菜水果 + 20% 营养补充（墨鱼骨、鸡蛋）</li>
+                <li><strong>注意事项：</strong>⚠️ 不要只喂小米！会导致营养不良和掉毛！</li>
+                <li><strong>环境要求：</strong>温度 18-28°C，湿度 50-70%，每天放出活动 1-2 小时</li>
+                <li><strong>禁忌食物：</strong>巧克力、咖啡、酒、洋葱、牛油果、含盐食物</li>
+            </ul>
         </section>
 
         <!-- Training -->
         <section class="section">
             <h2>🎵 训练历程</h2>
-            <div class="training">
-                <h3>第1阶段：建立信任（进行中）</h3>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <h4>第1周</h4>
-                        <p>让小亮适应新环境，每天陪伴1小时</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h4>第2周</h4>
-                        <p>开始手喂食物，让它习惯人的手</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h4>第3周</h4>
-                        <p>让它站在手指上</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h4>第4周</h4>
-                        <p>尝试站在肩膀上</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="training">
-                <h3>第2阶段：声音训练</h3>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <h4>音阶学习（进行中）</h4>
-                        <p>教小亮吹简单的口哨音阶：do re mi fa sol</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h4>旋律模仿</h4>
-                        <p>播放简单的旋律，让它模仿（计划中）</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h4>歌曲学习</h4>
-                        <p>教它唱完整的儿歌（计划中）</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Daily Logs -->
-        <section class="section">
-            <h2>📅 成长日记</h2>
-            <div class="logs" id="logs">
-                <div class="loading">加载中...</div>
-            </div>
+            <ul class="timeline">
+                <li class="timeline-item">
+                    <h3>阶段一：建立信任（2-4周）</h3>
+                    <p>手喂食物，每天陪伴 1 小时，固定训练者</p>
+                </li>
+                <li class="timeline-item">
+                    <h3>阶段二：声音训练（4-8周）</h3>
+                    <p>用口哨吹 do re mi，播放简单旋律，做对了就奖励</p>
+                </li>
+                <li class="timeline-item">
+                    <h3>阶段三：巩固提升（8周+）</h3>
+                    <p>增加旋律复杂度，教完整的歌，互动唱歌</p>
+                </li>
+            </ul>
         </section>
 
         <!-- Gallery -->
         <section class="section">
             <h2>📸 小亮相册</h2>
-            <div class="gallery" id="gallery">
-                <div class="gallery-placeholder">
-                    <div class="icon">📸</div>
-                    <div>等待第一张照片...</div>
-                </div>
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Gallery items will be loaded here -->
             </div>
         </section>
 
         <!-- Interactive -->
         <section class="section">
             <h2>🎮 小互动</h2>
-            <div class="interactive">
-                <p>和小亮打个招呼吧！点击下面的按钮，看看小亮会说什么？</p>
-                <div class="interaction-box">
-                    <button class="interaction-btn" onclick="sayHello()">👋 和小亮打招呼</button>
-                    <button class="interaction-btn" onclick="playMusic()">🎵 听小亮唱歌</button>
-                    <button class="interaction-btn" onclick="showTrick()">🎭 看小亮表演</button>
-                </div>
-                <div id="response-area"></div>
+            <div class="action-buttons">
+                <button class="action-btn" onclick="sayHi()">👋 打招呼</button>
+                <button class="action-btn secondary" onclick="singSong()">🎵 听小亮唱歌</button>
+                <button class="action-btn secondary" onclick="performTrick()">🎭 小亮表演</button>
             </div>
+            <div class="message-box" id="messageBox"></div>
         </section>
 
         <!-- Footer -->
         <footer>
-            <p>🐦 小亮的日常 · 玄凤鹦鹉成长日记</p>
-            <p>陪伴小亮每一天 <span class="heart">❤️</span></p>
-            <p style="font-size: 0.9em; opacity: 0.8;">记录者：扣虾（KouXia）🦞</p>
+            <p>💝 用爱记录成长，让小亮的每一天都闪闪发光！</p>
+            <p>© 2026 小亮的日常 | Made with ❤️ by OpenClaw</p>
         </footer>
     </div>
 
     <script>
-        // Load data from JSON
+        // Data loading
+        let appData = {
+            stats: {},
+            diary: [],
+            gallery: [],
+            allContent: [],
+            versions: {}
+        };
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            loadData();
+            loadVersions();
+        });
+
+        // Load Versions
+        async function loadVersions() {
+            try {
+                const response = await fetch('data/versions.json');
+                appData.versions = await response.json();
+                const versionInfo = document.getElementById('versionInfo');
+                if (versionInfo && appData.versions.currentVersion) {
+                    versionInfo.innerHTML = `📌 版本 ${appData.versions.currentVersion} | 最后更新：${appData.versions.updateDate}`;
+                }
+            } catch (error) {
+                console.log('No version info yet');
+            }
+        }
+
+        // Index all content for search
+        function indexContent() {
+            appData.allContent = [];
+            
+            appData.diary.forEach(entry => {
+                appData.allContent.push({
+                    type: 'diary',
+                    date: entry.date,
+                    title: entry.title || '成长日记',
+                    content: entry.content.join(' ')
+                });
+            });
+
+            appData.gallery.forEach(item => {
+                appData.allContent.push({
+                    type: 'photo',
+                    caption: item.caption,
+                    src: item.src
+                });
+            });
+        }
+
+        // Load Data
         async function loadData() {
             try {
                 const response = await fetch('data/diary.json');
-                const data = await response.json();
-
-                // Update stats
-                updateStats(data.stats);
-
-                // Update diary
-                updateDiary(data.diary);
-
-                // Update gallery
-                updateGallery(data.gallery);
-
+                appData = await response.json();
+                indexContent();
+                renderDiaryCarousel();
+                renderGallery();
+                updateStats();
+                loadRandomDailyPhoto();
             } catch (error) {
                 console.error('Error loading data:', error);
-                document.getElementById('stats').innerHTML = '<p>数据加载失败，请稍后再试</p>';
-                document.getElementById('logs').innerHTML = '<p>数据加载失败，请稍后再试</p>';
             }
         }
 
-        function updateStats(stats) {
-            const statsContainer = document.getElementById('stats');
-            statsContainer.innerHTML = `
-                <div class="stat-item">
-                    <div class="stat-number">${stats.age}</div>
-                    <div class="stat-label">月龄</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">${stats.scales}</div>
-                    <div class="stat-label">学会的音阶</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">${stats.trust}</div>
-                    <div class="stat-label">信任等级</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">${stats.cute}%</div>
-                    <div class="stat-label">可爱指数</div>
-                </div>
-            `;
-        }
+        // Render Diary Carousel
+        function renderDiaryCarousel() {
+            const carousel = document.getElementById('diaryCarousel');
+            carousel.innerHTML = '';
 
-        function updateDiary(diary) {
-            const logsContainer = document.getElementById('logs');
-
-            if (diary.length === 0) {
-                logsContainer.innerHTML = '<p>还没有日记记录哦！</p>';
-                return;
-            }
-
-            const diaryHTML = diary.map(entry => {
-                let imagesHTML = '';
-                if (entry.images && entry.images.length > 0) {
-                    imagesHTML = '<div style="margin-top: 15px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px;">' +
-                        entry.images.map(img => `<img src="${img}" style="width: 100%; border-radius: 10px; border: 2px solid #667eea;">`).join('') +
-                        '</div>';
-                }
-
-                let videoHTML = '';
-                if (entry.video) {
-                    videoHTML = '<div class="video-container"><iframe src="' + entry.video + '" allowfullscreen></iframe></div>';
-                }
-
-                return `
-                    <div class="log-entry">
-                        <div class="log-date">📅 ${entry.date}（第${entry.day}天）</div>
+            appData.diary.forEach((entry, index) => {
+                const card = document.createElement('div');
+                card.className = 'diary-card';
+                card.innerHTML = `
+                    <img class="diary-cover" src="${entry.images[0] || ''}" alt="${entry.title || '日记'}">
+                    <div class="diary-info">
+                        <div class="diary-date">${entry.date} • 第 ${entry.day}天</div>
+                        <div class="diary-title">${entry.title || '成长日记'}</div>
+                        <div class="diary-preview">${entry.content[0]}</div>
+                    </div>
+                    <div class="diary-content">
+                        <h3>${entry.title || '成长日记'}</h3>
                         <ul>
                             ${entry.content.map(item => `<li>${item}</li>`).join('')}
                         </ul>
-                        ${imagesHTML}
-                        ${videoHTML}
+                        <div class="diary-images">
+                            ${entry.images.map(img => `<img src="${img}" alt="日记照片">`).join('')}
+                        </div>
                     </div>
                 `;
-            }).reverse().join('');
-
-            logsContainer.innerHTML = diaryHTML;
+                card.onclick = () => toggleDiaryCard(card);
+                carousel.appendChild(card);
+            });
         }
 
-        function updateGallery(gallery) {
-            const galleryContainer = document.getElementById('gallery');
+        // Toggle Diary Card (expand/collapse)
+        function toggleDiaryCard(card) {
+            const allCards = document.querySelectorAll('.diary-card');
+            
+            if (card.classList.contains('expanded')) {
+                card.classList.remove('expanded');
+                // 恢复原来的宽度
+                allCards.forEach(c => c.style.flex = '0 0 300px');
+            } else {
+                // 关闭其他所有卡片
+                allCards.forEach(c => {
+                    c.classList.remove('expanded');
+                    c.style.flex = '0 0 300px';
+                });
+                // 展开当前卡片
+                card.classList.add('expanded');
+                card.style.flex = '0 0 800px';
+                
+                // 滚动到视野内
+                card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        }
 
-            if (gallery.length === 0) {
-                galleryContainer.innerHTML = `
-                    <div class="gallery-placeholder">
-                        <div class="icon">📸</div>
-                        <div>等待第一张照片...</div>
-                    </div>
+        // Render Gallery
+        function renderGallery() {
+            const grid = document.getElementById('galleryGrid');
+            grid.innerHTML = '';
+
+            appData.gallery.forEach(item => {
+                const div = document.createElement('div');
+                div.className = 'gallery-item';
+                div.innerHTML = `
+                    <img src="${item.src}" alt="${item.caption}">
+                    <div class="gallery-caption">${item.caption}</div>
                 `;
+                grid.appendChild(div);
+            });
+        }
+
+        // Update Stats
+        function updateStats() {
+            document.getElementById('statAge').textContent = appData.stats.age || 0;
+            document.getElementById('statScales').textContent = appData.stats.scales || 0;
+            document.getElementById('statTrust').textContent = appData.stats.trust || 0;
+            document.getElementById('statCute').textContent = appData.stats.cute || 100;
+        }
+
+        // Load Random Daily Photo
+        function loadRandomDailyPhoto() {
+            if (appData.gallery.length === 0) return;
+
+            const randomIndex = Math.floor(Math.random() * appData.gallery.length);
+            const photo = appData.gallery[randomIndex];
+
+            document.getElementById('dailyPhotoContainer').innerHTML = 
+                `<img src="${photo.src}" alt="每日一图">`;
+            document.getElementById('dailyPhotoCaption').textContent = photo.caption;
+        }
+
+        // Search Function
+        function searchSite() {
+            const query = document.getElementById('searchInput').value.toLowerCase().trim();
+            const resultsContainer = document.getElementById('searchResults');
+            
+            if (!query) {
+                resultsContainer.classList.remove('show');
                 return;
             }
 
-            const galleryHTML = gallery.map(item => {
-                if (item.type === 'image') {
-                    return `<div class="gallery-item"><img src="${item.src}" alt="${item.caption}"></div>`;
-                } else if (item.type === 'video') {
-                    return `<div class="gallery-item"><div class="video-container"><iframe src="${item.src}" allowfullscreen></iframe></div></div>`;
-                }
-            }).join('');
+            // Search in all content
+            const results = [];
 
-            galleryContainer.innerHTML = galleryHTML;
-        }
-
-        // Interactive features
-        const responses = {
-            hello: [
-                "啾~ 啾~ （歪头看你）",
-                "你好呀！🎵",
-                "小亮在呢！啾~",
-                "要吃什么好吃的吗？😋"
-            ],
-            music: [
-                "♪ do re mi fa sol ♪",
-                "啾~ 啾~ 啾~ 🎵",
-                "这是小亮的练习曲！♪",
-                "还不好听？多练习就好啦~🎶"
-            ],
-            trick: [
-                "（飞到栖木最高处）啾~！",
-                "（用嘴巴整理羽毛）",
-                "（对着镜子自恋中）",
-                "（歪头看你）啾~"
-            ]
-        };
-
-        function getRandomResponse(type) {
-            const arr = responses[type];
-            return arr[Math.floor(Math.random() * arr.length)];
-        }
-
-        function sayHello() {
-            const area = document.getElementById('response-area');
-            area.className = 'show';
-            area.innerHTML = `<p style="font-size: 1.3em; color: #667eea;">${getRandomResponse('hello')}</p>`;
-        }
-
-        function playMusic() {
-            const area = document.getElementById('response-area');
-            area.className = 'show';
-            area.innerHTML = `<p style="font-size: 1.3em; color: #667eea;">${getRandomResponse('music')}</p>`;
-        }
-
-        function showTrick() {
-            const area = document.getElementById('response-area');
-            area.className = 'show';
-            area.innerHTML = `<p style="font-size: 1.3em; color: #667eea;">${getRandomResponse('trick')}</p>`;
-        }
-
-        // Load data on page load
-        document.addEventListener('DOMContentLoaded', loadData);
-
-        // Add animation on scroll
-        window.addEventListener('scroll', function() {
-            const sections = document.querySelectorAll('.section');
-            sections.forEach(section => {
-                const rect = section.getBoundingClientRect();
-                if (rect.top < window.innerHeight - 100) {
-                    section.style.opacity = '1';
-                    section.style.transform = 'translateY(0)';
+            // Search diaries
+            appData.allContent.forEach(item => {
+                const content = (item.content || '').toLowerCase();
+                const title = (item.title || '').toLowerCase();
+                if (content.includes(query) || title.includes(query)) {
+                    results.push({
+                        type: item.type,
+                        title: item.title || '成长日记',
+                        date: item.date || '',
+                        content: item.content || ''
+                    });
                 }
             });
+
+            // Display results
+            if (results.length === 0) {
+                resultsContainer.innerHTML = '<h3>🔍 未找到相关内容</h3>';
+            } else {
+                resultsContainer.innerHTML = '<h3>🔍 搜索结果</h3>';
+                results.forEach(result => {
+                    const item = document.createElement('div');
+                    item.className = 'search-result-item';
+                    item.innerHTML = `
+                        <div class="search-result-title">${result.title}</div>
+                        <div class="search-result-content">${result.date ? result.date + ' • ' : ''}${result.content}</div>
+                    `;
+                    resultsContainer.appendChild(item);
+                });
+            }
+
+            resultsContainer.classList.add('show');
+        }
+
+        // Enter key to search
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchSite();
+            }
         });
 
-        // Initial animation for sections
-        document.addEventListener('DOMContentLoaded', function() {
-            const sections = document.querySelectorAll('.section');
-            sections.forEach((section, index) => {
-                section.style.opacity = '0';
-                section.style.transform = 'translateY(30px)';
-                setTimeout(() => {
-                    section.style.transition = 'all 0.6s ease-out';
-                    section.style.opacity = '1';
-                    section.style.transform = 'translateY(0)';
-                }, index * 100);
-            });
+        // Interactive Functions
+        function sayHi() {
+            const messages = [
+                "啾啾~ 小亮在~ 🐦",
+                "你好呀！👋",
+                "小亮在听~ 🎵",
+                "咕咕咕~ 小亮饿了 🌾",
+                "啾啾啾啾~ 小亮开心！💕"
+            ];
+            const message = messages[Math.floor(Math.random() * messages.length)];
+            showMessage(message);
+        }
+
+        function singSong() {
+            showMessage("啾啾~啾啾~ 啾啾~ 小亮在唱歌！🎵");
+            showMessage("🎵♪ 小亮想学唱歌了！啾啾啾啾~");
+        }
+
+        function performTrick() {
+            const tricks = [
+                "小亮在翻跟头！🐦",
+                "小亮在歪头看你！👀",
+                "小亮在眨眼睛！😉",
+                "小亮在拍翅膀！✨",
+                "小亮在歪头观察！🔍"
+            ];
+            const trick = tricks[Math.floor(Math.random() * tricks.length)];
+            showMessage(trick);
+        }
+
+        // Show Message
+        function showMessage(text) {
+            const messageBox = document.getElementById('messageBox');
+            messageBox.textContent = text;
+            messageBox.classList.add('show');
+            
+            setTimeout(() => {
+                messageBox.classList.remove('show');
+            }, 3000);
+        }
+
+        // Logo click
+        document.getElementById('logo').addEventListener('click', function() {
+            sayHi();
         });
     </script>
 </body>

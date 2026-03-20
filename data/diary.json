@@ -50,11 +50,8 @@
         "期待小亮学会更多的技能！"
       ],
       "images": [
-        "images/xiaoliang-new-2026-03-20.jpg",
-        "images/xiaoliang-new-2026-03-20-2.jpg",
-        "images/dining-dad-1.jpg",
-        "images/dining-dad-2.jpg",
-        "images/dining-dad-3.jpg"
+        "images/dining-dad-new-1.jpg",
+        "images/dining-dad-new-2.jpg"
       ],
       "video": null
     },
@@ -98,28 +95,13 @@
     },
     {
       "type": "image",
-      "src": "images/xiaoliang-new-2026-03-20.jpg",
-      "caption": "2026-03-20 小亮的最新照片"
-    },
-    {
-      "type": "image",
-      "src": "images/xiaoliang-new-2026-03-20-2.jpg",
-      "caption": "2026-03-20 小亮的另一张照片"
-    },
-    {
-      "type": "image",
-      "src": "images/dining-dad-1.jpg",
+      "src": "images/dining-dad-new-1.jpg",
       "caption": "和爸爸一起吃饭，开心！"
     },
     {
       "type": "image",
-      "src": "images/dining-dad-2.jpg",
-      "caption": "胃口真好，什么都爱吃"
-    },
-    {
-      "type": "image",
-      "src": "images/dining-dad-3.jpg",
-      "caption": "和小亮的温馨时光"
+      "src": "images/dining-dad-new-2.jpg",
+      "caption": "和小亮的温馨时光"  
     }
   ]
 }
