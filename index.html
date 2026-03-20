@@ -731,16 +731,21 @@
             
             <!-- Version Info -->
             <div class="version-section">
-                <div class="version-info" id="versionInfo">
+                <div class="version-info" id="versionInfo" onclick="toggleVersionDetail()">
                     <span id="versionText">📌 v1.2 | 2026-03-21</span>
                 </div>
-                <div class="version-updates">
+                <div class="version-updates" id="versionUpdates">
                     <h4>📝 最近更新：</h4>
                     <ul class="updates-list">
                         <li>新增小互动计数器，互动更有趣</li>
                         <li>新增给小亮点赞功能</li>
                         <li>成长数据与互动联动</li>
                     </ul>
+                    <div class="version-detail" id="versionDetail" style="display:none; margin-top:10px; padding-top:10px; border-top:1px solid #667eea30;">
+                        <p style="font-size:0.75em; color:#666;">🔢 完整版本号：<strong>v1.2.0</strong></p>
+                        <p style="font-size:0.7em; color:#999; margin-top:5px;">版本号格式：主版本.次版本.修订版本</p>
+                        <p style="font-size:0.7em; color:#999;">修订版本用于文字、颜色等小修改</p>
+                    </div>
                 </div>
             </div>
         </header>
@@ -859,7 +864,8 @@
         <!-- Footer -->
         <footer>
             <p>💝 用爱记录成长，让小亮的每一天都闪闪发光！</p>
-            <p>© 2026 小亮的日常 | Made with ❤️ by OpenClaw</p>
+            <p>©️ 阿南 A_Nan-human ｜ 磷虾-OpenClaw</p>
+            <p style="font-size:0.8em; opacity:0.9;">最后更新：2026-03-21 于西安 📍</p>
         </footer>
     </div>
 
@@ -1223,6 +1229,16 @@
                 searchSite();
             }
         });
+
+        // Toggle version detail
+        function toggleVersionDetail() {
+            const detail = document.getElementById('versionDetail');
+            if (detail.style.display === 'none') {
+                detail.style.display = 'block';
+            } else {
+                detail.style.display = 'none';
+            }
+        }
 
         // Logo click
         document.getElementById('logo').addEventListener('click', function() {
