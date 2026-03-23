@@ -731,6 +731,9 @@
             }
         }
     </style>
+    
+    <!-- Gitalk 评论系统 CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/gitalk@latest/dist/gitalk.css">
 </head>
 <body>
     <div class="container">
@@ -1359,6 +1362,23 @@
             const message = messages[Math.floor(Math.random() * messages.length)];
             showMessage(message);
         });
+    </script>
+    
+    <!-- Gitalk 评论系统 -->
+    <div id="gitalk-container" style="max-width: 800px; margin: 30px auto; padding: 20px;"></div>
+    <script src="https://unpkg.com/gitalk@latest/dist/gitalk.min.js"></script>
+    <script>
+        const gitalk = new Gitalk({
+            clientID: 'Ov23lijcVced2wbpwGjx',
+            clientSecret: 'fc1139435c385c0ea976490788269057aa3dd5ab',
+            repo: 'xiaoliang-website',
+            owner: 'topedu2008',
+            admin: ['topedu2008'],
+            id: 'gitalk-comments',
+            distractionFreeMode: false,
+            language: 'zh-CN'
+        });
+        gitalk.render('gitalk-container');
     </script>
 </body>
 
