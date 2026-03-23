@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>小亮的日常 - 玄凤鹦鹉的成长日记 🐦</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐦</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><circle cx='256' cy='256' r='256' fill='%23ffffff' /><path d='M256 64 L240 256 L256 448 L272 256 Z' fill='%23ffffff'/></svg>">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect width='512' height='512' fill='%23000000'/><path d='M256 64 L240 256 L256 448 L272 256 Z' fill='%23ffffff'/></svg>">
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-NB9EECTHLQ"></script>
@@ -29,7 +30,125 @@
             color: #333;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
+            transition: background 0.3s ease;
         }
+
+        /* 深色模式 */
+        body.dark-mode {
+            color: #e0e0e0;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        }
+
+        body.dark-mode .container > * {
+            background-color: rgba(255, 255, 255, 0.95);
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .diary-section,
+        body.dark-mode .section,
+        body.dark-mode .interactive-section,
+        body.dark-mode .footer {
+            background-color: rgba(20, 20, 46, 0.95);
+        }
+
+        body.dark-mode .diary-item {
+            background: #2a2a5a;
+            border-left-color: #a78bfa;
+        }
+
+        body.dark-mode .diary-item:hover {
+            background: #4a4a8a;
+        }
+
+        body.dark-mode .action-btn {
+            background: #a78bfa;
+            color: #1a1a2e;
+        }
+
+        body.dark-mode .action-btn:hover {
+            background: #8b5cf6;
+        }
+
+        /* 主题切换按钮 */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            border: 2px solid #667eea;
+            border-radius: 30px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 24px;
+            user-select: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .theme-toggle .icon {
+            display: none;
+        }
+
+        /* GitHub 风格 Logo */
+        .github-logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .github-logo img {
+            width: 40px;
+            height: 40px;
+            border-radius: 4px;
+        }
+
+        .github-logo .logo-dark {
+            display: block;
+        }
+
+        .github-logo .logo-light {
+            display: none;
+        }
+
+        .dark-mode .github-logo .logo-dark {
+            display: none;
+        }
+
+        .dark-mode .github-logo .logo-light {
+            display: block;
+        }
+
+        .dark-mode .theme-toggle {
+            background: rgba(26, 26, 46, 0.95);
+            border-color: #a78bfa;
+        }
+
+        .dark-mode .theme-toggle .theme-icon-moon {
+            display: inline;
+        }
+
+        .dark-mode .theme-toggle .theme-icon-sun {
+            display: none;
+        }
+
+        .theme-toggle .theme-icon-sun {
+            display: inline;
+        }
+
+        .theme-toggle .theme-icon-moon {
+            display: none;
+        }
+
 
         .container {
             max-width: 1200px;
@@ -48,15 +167,12 @@
             animation: fadeInDown 0.8s ease-out;
         }
 
-        .logo {
-            font-size: 60px;
-            margin-bottom: 8px;
-            animation: bounce 2s infinite;
-            cursor: pointer;
+        /* GitHub Logo Animation */
+        .github-logo img {
             transition: transform 0.3s;
         }
 
-        .logo:hover {
+        .github-logo:hover img {
             transform: scale(1.1);
         }
 
@@ -739,27 +855,34 @@
     <div class="container">
         <!-- Header -->
         <header>
-            <div class="logo" id="logo">🐦</div>
-            <h1>小亮的日常</h1>
-            <p class="subtitle">玄凤鹦鹉的成长日记</p>
+            <div class="github-logo">
+                <img src="images/logo-dark.png" class="logo-dark" alt="小亮 Logo (深色模式)">
+                <img src="images/logo-light.png" class="logo-light" alt="小亮 Logo (浅色模式)">
+                <div>
+                    <h1>小亮的日常</h1>
+                    <p class="subtitle">玄凤鹦鹉的成长日记</p>
+                </div>
+            </div>
+            
+            <!-- Theme Toggle Button -->
+            <div class="theme-toggle" onclick="toggleTheme()" title="切换深色/浅色模式">
+                <span class="theme-icon-sun">☀️</span>
+                <span class="theme-icon-moon">🌙</span>
+            </div>
             
             <!-- Version Info -->
             <div class="version-section">
                 <div class="version-info" id="versionInfo" onclick="toggleVersionDetail()">
-                    <span id="versionText">📌 v1.4 | 2026-03-21</span>
+                    <span id="versionText">📌 v1.5 | 2026-03-23</span>
                 </div>
                 <div class="version-updates" id="versionUpdates">
                     <h4>📝 最近更新：</h4>
                     <ul class="updates-list">
-                        <li>新增 Google Analytics 数据统计</li>
-                        <li>新增总互动次数显示</li>
-                        <li>新增小互动计数器，互动更有趣</li>
+                        <li>✨ 添加 GitHub 风格 Logo（深色/浅色模式）</li>
+                        <li>💬 新增 Gitalk 留言板功能</li>
+                        <li>📸 添加小亮阳台晒太阳照片</li>
+                        <li>🚀 迁移到 GitHub Pages</li>
                     </ul>
-                    <div class="version-detail" id="versionDetail" style="display:none; margin-top:10px; padding-top:10px; border-top:1px solid #667eea30;">
-                        <p style="font-size:0.75em; color:#666;">🔢 完整版本号：<strong>v1.4.0</strong></p>
-                        <p style="font-size:0.7em; color:#999; margin-top:5px;">版本号格式：主版本.次版本.修订版本</p>
-                        <p style="font-size:0.7em; color:#999;">修订版本用于文字、颜色等小修改</p>
-                    </div>
                 </div>
             </div>
         </header>
@@ -1379,6 +1502,28 @@
             language: 'zh-CN'
         });
         gitalk.render('gitalk-container');
+        
+        // 主题切换功能
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+            
+            // 保存用户偏好
+            const isDarkMode = document.body.classList.contains('dark-mode');
+            localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+        }
+        
+        // 加载保存的主题
+        function loadTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-mode');
+            }
+        }
+        
+        // 页面加载时加载主题
+        document.addEventListener('DOMContentLoaded', function() {
+            loadTheme();
+        });
     </script>
 </body>
 
