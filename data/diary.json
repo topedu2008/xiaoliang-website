@@ -7,6 +7,23 @@
   },
   "diary": [
     {
+      "date": "2026-03-23",
+      "day": 5,
+      "title": "小亮在阳台晒太阳 ☀️",
+      "content": [
+        "今天小亮站在阳台上，舒服地晒着太阳",
+        "羽毛蓬松蓬的，看起来特别放松",
+        "窗外的绿植让小亮很开心",
+        "红色的腮红在阳光下格外漂亮",
+        "喜欢站在栖木上看风景",
+        "悠闲的午后时光～"
+      ],
+      "images": [
+        "images/xiaoliang-2026-03-23.jpg"
+      ],
+      "video": null
+    },
+    {
       "date": "2026-03-21",
       "day": 4,
       "title": "小亮今天给大家打招呼了 👋",
@@ -91,6 +108,11 @@
   "gallery": [
     {
       "type": "image",
+      "src": "images/xiaoliang-2026-03-23.jpg",
+      "caption": "小亮在阳台晒太阳 ☀️"
+    },
+    {
+      "type": "image",
       "src": "images/2026-03-19/001.jpg",
       "caption": "小亮的可爱瞬间"
     },
@@ -117,7 +139,7 @@
     {
       "type": "image",
       "src": "images/dining-dad-new-2.jpg",
-      "caption": "和小亮的温馨时光"  
+      "caption": "和小亮的温馨时光"
     },
     {
       "type": "video",
