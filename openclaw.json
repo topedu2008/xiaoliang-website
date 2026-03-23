@@ -1,7 +1,7 @@
 {
   "meta": {
     "lastTouchedVersion": "2026.3.13",
-    "lastTouchedAt": "2026-03-17T02:16:47.512Z"
+    "lastTouchedAt": "2026-03-23T10:05:48.380Z"
   },
   "wizard": {
     "lastRunAt": "2026-03-17T02:16:47.500Z",
@@ -386,7 +386,8 @@
     "allow": [
       "feishu",
       "napcat",
-      "openclaw-qqbot"
+      "openclaw-qqbot",
+      "openclaw-weixin"
     ],
     "entries": {
       "feishu": {
@@ -402,6 +403,9 @@
         "enabled": true
       },
       "openclaw-qqbot": {
+        "enabled": true
+      },
+      "openclaw-weixin": {
         "enabled": true
       }
     },
@@ -470,6 +474,19 @@
         "shasum": "e9ecfe9edd661bad52c78d01abd4f0817f3cbfae",
         "resolvedAt": "2026-03-17T02:10:45.944Z",
         "installedAt": "2026-03-17T02:12:41.410Z"
+      },
+      "openclaw-weixin": {
+        "source": "npm",
+        "spec": "@tencent-weixin/openclaw-weixin",
+        "installPath": "/workspace/projects/extensions/openclaw-weixin",
+        "version": "1.0.2",
+        "resolvedName": "@tencent-weixin/openclaw-weixin",
+        "resolvedVersion": "1.0.2",
+        "resolvedSpec": "@tencent-weixin/openclaw-weixin@1.0.2",
+        "integrity": "sha512-kYPEowHB/0VWt9nQFee/AS6Fb+jbnu38wjkgZDBdKTuJoBL0IBW2obQ0ymgFKBFJJL9rDwnFrb/17ORGZD/X8Q==",
+        "shasum": "244baf0a873683a9c350d0f0b5bc055c07b0eb39",
+        "resolvedAt": "2026-03-23T10:05:18.546Z",
+        "installedAt": "2026-03-23T10:05:45.766Z"
       }
     }
   }
