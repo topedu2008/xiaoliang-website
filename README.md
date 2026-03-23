@@ -4,6 +4,66 @@
 
 ---
 
+## 🚀 托管平台迁移历史
+
+### 第一次迁移：Netlify → Vercel | 2026-03-22
+
+**迁移原因：**
+- Netlify 免费额度超限
+- 需要更多免费的带宽和构建次数
+
+**迁移过程：**
+1. ✅ 导出 Netlify 配置
+2. ✅ 创建 Vercel 账号并导入项目
+3. ✅ 配置 Vercel 自动部署
+4. ✅ 验证网站功能正常
+5. ✅ 更新在线地址为 xiaoliang-website.vercel.app
+
+**迁移结果：**
+- ✅ 成功迁移到 Vercel
+- ✅ 免费额度更大
+- ✅ 自动部署正常
+- ⚠️ 但国内访问偶尔不稳定
+
+---
+
+### 第二次迁移：Vercel → GitHub Pages | 2026-03-23
+
+**迁移原因：**
+- Vercel 在中国大陆访问不稳定（经常超时）
+- GitHub Pages 访问稳定且免费
+- Gitalk 留言板更适合 GitHub 生态
+
+**迁移过程：**
+1. ✅ 确认 GitHub 仓库 Issues 功能已启用
+2. ✅ 创建 GitHub OAuth App（小亮留言板）
+3. ✅ 获取 Client ID 和 Client Secret
+4. ✅ 修改网站代码，添加 Gitalk 配置
+5. ✅ 推送代码到 GitHub
+6. ✅ GitHub Pages 自动部署
+7. ✅ 验证网站功能正常
+
+**迁移结果：**
+- ✅ 成功迁移到 GitHub Pages
+- ✅ 国内访问稳定
+- ✅ Gitalk 留言板正常工作
+- ✅ Vercel 仍保留作为备用
+
+**当前托管方案：**
+```
+主平台：GitHub Pages
+  - 地址：https://topedu2008.github.io/xiaoliang-website/
+  - 状态：✅ 稳定
+  - 访问：中国大陆稳定
+
+备用平台：Vercel
+  - 地址：https://xiaoliang-website.vercel.app/
+  - 状态：⚠️ 有时不稳定
+  - 访问：国外稳定
+```
+
+---
+
 ## 📚 版本历史
 
 ### v1.5 | 2026-03-23 - GitHub 风格 Logo + 深色模式 🎨
