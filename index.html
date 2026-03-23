@@ -35,24 +35,24 @@
 
         /* 深色模式 */
         body.dark-mode {
-            color: #e0e0e0;
+            color: #f0f0f0;
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
         }
 
         body.dark-mode .container > * {
-            background-color: rgba(255, 255, 255, 0.95);
-            color: #e0e0e0;
+            background-color: rgba(30, 30, 55, 0.95);
+            color: #f0f0f0;
         }
 
         body.dark-mode .diary-section,
         body.dark-mode .section,
         body.dark-mode .interactive-section,
         body.dark-mode .footer {
-            background-color: rgba(20, 20, 46, 0.95);
+            background-color: rgba(25, 25, 50, 0.95);
         }
 
         body.dark-mode .diary-item {
-            background: #2a2a5a;
+            background: #3a3a6a;
             border-left-color: #a78bfa;
         }
 
@@ -69,6 +69,27 @@
             background: #8b5cf6;
         }
 
+        /* 深色模式下的标题颜色 */
+        body.dark-mode h1,
+        body.dark-mode h2,
+        body.dark-mode h3,
+        body.dark-mode h4 {
+            color: #e0e0e0 !important;
+        }
+
+        body.dark-mode .title-section h1,
+        body.dark-mode .title-section .subtitle {
+            color: #f0f0f0 !important;
+        }
+
+        body.dark-mode .diary-item h3 {
+            color: #e0e0e0 !important;
+        }
+
+        body.dark-mode .diary-item p {
+            color: #c0c0c0 !important;
+        }
+
         /* 主题切换按钮 */
         .theme-toggle {
             position: fixed;
@@ -77,7 +98,7 @@
             z-index: 1000;
             background: rgba(255, 255, 255, 0.95);
             border: 2px solid #667eea;
-            border-radius: 30px;
+            border-radius: 20px;
             padding: 10px 20px;
             cursor: pointer;
             transition: all 0.3s;
@@ -98,12 +119,49 @@
             display: none;
         }
 
+        /* Header 布局 */
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        /* 居中的 Logo 和标题 */
+        .center-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+            text-align: center;
+        }
+
+        /* 标题区域 */
+        .title-section {
+            margin-top: 10px;
+        }
+
+        .title-section h1 {
+            margin: 5px 0 0 0;
+            font-size: 28px;
+            color: inherit;
+        }
+
+        .title-section .subtitle {
+            margin: 0;
+            font-size: 14px;
+            opacity: 0.8;
+            color: inherit;
+        }
+
         /* GitHub 风格 Logo */
         .github-logo {
             display: inline-flex;
             align-items: center;
-            gap: 15px;
-            margin-bottom: 10px;
+            justify-content: center;
+            margin-bottom: 0;
         }
 
         .github-logo img {
@@ -135,8 +193,38 @@
             display: block;
         }
 
+        /* 主题切换按钮 - 更精致小巧 */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            border: 2px solid #667eea;
+            border-radius: 20px;
+            padding: 8px 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 18px;
+            user-select: none;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+        }
+
+        .theme-toggle:active {
+            transform: scale(0.98);
+        }
+
+        .theme-toggle .theme-icon-moon {
+            display: none;
+        }
+
         .dark-mode .theme-toggle {
-            background: rgba(26, 26, 46, 0.95);
+            background: rgba(30, 30, 50, 0.95);
             border-color: #a78bfa;
         }
 
@@ -862,19 +950,23 @@
     <div class="container">
         <!-- Header -->
         <header>
-            <div class="github-logo">
-                <img src="images/logo-dark.png" class="logo-dark" alt="小亮 Logo (深色模式)">
-                <img src="images/logo-light.png" class="logo-light" alt="小亮 Logo (浅色模式)">
-                <div>
-                    <h1>小亮的日常</h1>
-                    <p class="subtitle">玄凤鹦鹉的成长日记</p>
+            <div class="header-container">
+                <!-- Center Logo and Title -->
+                <div class="center-content">
+                    <div class="github-logo">
+                        <img src="images/logo-dark.png" class="logo-dark" alt="小亮 Logo (深色模式)">
+                        <img src="images/logo-light.png" class="logo-light" alt="小亮 Logo (浅色模式)">
+                    </div>
+                    <div class="title-section">
+                        <h1>小亮的日常</h1>
+                        <p class="subtitle">玄凤鹦鹉的成长日记</p>
+                    </div>
                 </div>
-            </div>
-            
-            <!-- Theme Toggle Button -->
-            <div class="theme-toggle" onclick="toggleTheme()" title="切换深色/浅色模式">
-                <span class="theme-icon-sun">☀️</span>
-                <span class="theme-icon-moon">🌙</span>
+                
+                <!-- Theme Toggle Button (右上角) -->
+                <div class="theme-toggle" onclick="toggleTheme()" title="切换深色/浅色模式">
+                    <span class="theme-icon-sun">☀️</span>
+                </div>
             </div>
             
             <!-- Version Info -->
@@ -1514,9 +1606,22 @@
         function toggleTheme() {
             document.body.classList.toggle('dark-mode');
             
-            // 保存用户偏好
             const isDarkMode = document.body.classList.contains('dark-mode');
+            
+            // 保存用户偏好
             localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+            
+            // 切换图标显示
+            const sunIcon = document.querySelector('.theme-icon-sun');
+            const moonIcon = document.querySelector('.theme-icon-moon');
+            
+            if (isDarkMode) {
+                sunIcon.style.display = 'none';
+                moonIcon.style.display = 'inline';
+            } else {
+                sunIcon.style.display = 'inline';
+                moonIcon.style.display = 'none';
+            }
         }
         
         // 加载保存的主题
@@ -1524,6 +1629,13 @@
             const savedTheme = localStorage.getItem('theme');
             if (savedTheme === 'dark') {
                 document.body.classList.add('dark-mode');
+                // 切换到月亮图标
+                const sunIcon = document.querySelector('.theme-icon-sun');
+                const moonIcon = document.querySelector('.theme-icon-moon');
+                if (sunIcon && moonIcon) {
+                    sunIcon.style.display = 'none';
+                    moonIcon.style.display = 'inline';
+                }
             }
         }
         
