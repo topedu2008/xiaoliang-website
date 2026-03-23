@@ -4,7 +4,9 @@
 
 ---
 
-## 🌐 网站预览
+## 🌐 在线访问
+
+**网站地址：** https://topedu2008.github.io/xiaoliang-website/
 
 这是一个关于小亮（5个月大的玄凤鹦鹉）的专属网站，包含：
 - 📖 **饲养技巧**：科学的饮食和护理指南
@@ -15,9 +17,23 @@
 
 ---
 
+## 📅 更新日志
+
+### 2026-03-23
+- ✅ 网站成功迁移到 GitHub Pages
+- ✅ 中国大陆访问稳定
+- ✅ 添加小亮阳台晒太阳的照片
+- ✅ 更新每日一图
+- ✅ 添加第5天成长日记
+
+---
+
 ## 🚀 如何使用
 
-### 方法一：直接在浏览器打开
+### 在线访问（推荐）
+直接访问：https://topedu2008.github.io/xiaoliang-website/
+
+### 方法一：直接在浏览器打开本地文件
 
 1. 打开文件管理器
 2. 找到 `xiaoliang-website` 文件夹
@@ -294,19 +310,29 @@ A: 在 `index.html` 的 `<title>` 标签中修改：
 
 ## 🌐 部署到网络
 
-### GitHub Pages（推荐）
+### GitHub Pages（当前使用）✨
 
-1. 在 GitHub 创建仓库
-2. 上传 `xiaoliang-website` 文件夹内容
-3. 启用 GitHub Pages
-4. 访问 `https://你的用户名.github.io/仓库名`
+**网站地址：** https://topedu2008.github.io/xiaoliang-website/
 
-### 其他平台
+**更新流程（简单）：**
+1. 在本地修改代码
+2. `git add .`
+3. `git commit -m "更新说明"`
+4. `git push origin main`
+5. 等待 1-2 分钟，自动部署完成 ✅
 
+**优点：**
+- ✅ 免费
+- ✅ 中国大陆访问稳定
+- ✅ 访问速度快
+- ✅ 自动部署（无需任何配置）
+- ✅ 无限流量
+
+### 其他平台（备用）
+
+- Vercel（当前在中国大陆访问不稳定）
 - Netlify
-- Vercel
 - Cloudflare Pages
-- 传统虚拟主机
 
 ---
 
