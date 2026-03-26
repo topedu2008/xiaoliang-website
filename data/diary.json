@@ -7,6 +7,21 @@
   },
   "diary": [
     {
+      "date": "2026-03-26",
+      "day": 8,
+      "title": "小亮的新照片 🐦",
+      "content": [
+        "今天拍了小亮的新照片",
+        "小亮越来越可爱了！",
+        "红色的腮红还是那么漂亮",
+        "期待小亮学会更多技能～"
+      ],
+      "images": [
+        "images/xiaoliang-2026-03-26.jpg"
+      ],
+      "video": null
+    },
+    {
       "date": "2026-03-23",
       "day": 5,
       "title": "小亮在阳台晒太阳 ☀️",
@@ -106,6 +121,11 @@
     }
   ],
   "gallery": [
+    {
+      "type": "image",
+      "src": "images/xiaoliang-2026-03-26.jpg",
+      "caption": "小亮的新照片 🐦"
+    },
     {
       "type": "image",
       "src": "images/xiaoliang-2026-03-23.jpg",
