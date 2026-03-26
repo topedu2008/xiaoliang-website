@@ -4,8 +4,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>小亮的日常 - 玄凤鹦鹉的成长日记 🐦</title>
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/xiaoliang-website/manifest.json">
+
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" href="/xiaoliang-website/images/gitbe-icon-only.png">
+
+    <!-- Favicon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><circle cx='256' cy='256' r='256' fill='%23ffffff' /><path d='M256 64 L240 256 L256 448 L272 256 Z' fill='%23ffffff'/></svg>">
     <link rel="icon" media="(prefers-color-scheme: dark)" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect width='512' height='512' fill='%23000000'/><path d='M256 64 L240 256 L256 448 L272 256 Z' fill='%23ffffff'/></svg>">
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#667eea">
+    <meta name="msapplication-TileColor" content="#667eea">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="小亮的日常 - 一只玄凤鹦鹉的成长日记，记录小亮的每一天，包括饲养技巧、训练历程、成长日记和可爱照片">
+    <meta name="keywords" content="玄凤鹦鹉,小亮,鹦鹉成长日记,玄凤饲养,鹦鹉训练,宠物鹦鹉">
+    <meta name="author" content="阿南 A_Nan-human | 磷虾-OpenClaw">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://topedu2008.github.io/xiaoliang-website/">
+    <meta property="og:title" content="小亮的日常 - 玄凤鹦鹉的成长日记 🐦">
+    <meta property="og:description" content="记录小亮（玄凤鹦鹉）的每一天成长，分享饲养技巧和可爱瞬间">
+    <meta property="og:image" content="https://topedu2008.github.io/xiaoliang-website/images/xiaoliang-2026-03-26.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://topedu2008.github.io/xiaoliang-website/">
+    <meta property="twitter:title" content="小亮的日常 - 玄凤鹦鹉的成长日记 🐦">
+    <meta property="twitter:description" content="记录小亮（玄凤鹦鹉）的每一天成长，分享饲养技巧和可爱瞬间">
+    <meta property="twitter:image" content="https://topedu2008.github.io/xiaoliang-website/images/xiaoliang-2026-03-26.jpg">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "小亮的日常",
+      "description": "玄凤鹦鹉的成长日记",
+      "url": "https://topedu2008.github.io/xiaoliang-website/",
+      "author": {
+        "@type": "Person",
+        "name": "阿南 A_Nan-human"
+      },
+      "image": "https://topedu2008.github.io/xiaoliang-website/images/xiaoliang-2026-03-26.jpg",
+      "datePublished": "2026-03-18",
+      "dateModified": "2026-03-26"
+    }
+    </script>
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-NB9EECTHLQ"></script>
@@ -420,16 +470,41 @@
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+            background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .daily-photo img {
             width: 100%;
+            height: auto;
             display: block;
             transition: transform 0.3s;
+            object-fit: cover;
         }
 
         .daily-photo img:hover {
             transform: scale(1.02);
+        }
+
+        .daily-photo .video-container {
+            position: relative;
+            max-width: 400px;
+            margin: 0 auto;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+            background: #f0f0f0;
+        }
+
+        .daily-photo .video-container img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            display: block;
+            border-radius: 12px;
         }
 
         .daily-photo .caption {
@@ -972,16 +1047,20 @@
             <!-- Version Info -->
             <div class="version-section">
                 <div class="version-info" id="versionInfo" onclick="toggleVersionDetail()">
-                    <span id="versionText">📌 v1.7 | 2026-03-26</span>
+                    <span id="versionText">📌 v1.8 | 2026-03-26</span>
                 </div>
                 <div class="version-updates" id="versionUpdates">
                     <h4>📝 最近更新：</h4>
                     <ul class="updates-list">
+                        <li>✨ 新增 PWA 支持，可离线访问</li>
+                        <li>🚀 添加图片懒加载，提升性能</li>
+                        <li>📊 完善 SEO 优化和结构化数据</li>
+                        <li>📱 优化移动端交互体验</li>
+                        <li>🤖 新增自动化部署脚本（Windows/Mac/Linux）</li>
+                        <li>📚 创建更新指南和贡献指南</li>
                         <li>📸 添加小亮2026-03-26新照片</li>
-                        <li>✨ 启用新版 GitBe 品牌 Logo（深色/浅色自动适配）</li>
+                        <li>✨ 启用新版 GitBe 品牌 Logo</li>
                         <li>💬 新增 Gitalk 留言板功能</li>
-                        <li>📸 添加小亮阳台晒太阳照片</li>
-                        <li>🚀 迁移到 GitHub Pages</li>
                     </ul>
                 </div>
             </div>
@@ -1004,8 +1083,6 @@
             </div>
             <div class="caption" id="dailyPhotoCaption">小亮的新照片 - 2026-03-26 🐦</div>
         </div>
-
-
 
         <!-- Diary Section - 类似1.0版 -->
         <section class="diary-section">
@@ -1368,6 +1445,7 @@
                         renderDiaryList();
                         renderGallery();
                         loadRandomDailyPhoto();
+                        initLazyLoading(); // 初始化图片懒加载
                     })
                     .catch(error => {
                         console.error('Error loading data:', error);
@@ -1375,6 +1453,27 @@
             } catch (error) {
                 console.error('Error loading data:', error);
             }
+        }
+
+        // 图片懒加载
+        function initLazyLoading() {
+            const images = document.querySelectorAll('img[data-src]');
+
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.removeAttribute('data-src');
+                        observer.unobserve(img);
+                    }
+                });
+            }, {
+                rootMargin: '50px 0px',
+                threshold: 0.01
+            });
+
+            images.forEach(img => imageObserver.observe(img));
         }
 
         // Render Diary List - 类似1.0版
@@ -1487,12 +1586,26 @@
         function loadRandomDailyPhoto() {
             if (appData.gallery.length === 0) return;
 
-            const randomIndex = Math.floor(Math.random() * appData.gallery.length);
-            const photo = appData.gallery[randomIndex];
+            // 过滤只显示图片，不显示视频
+            const imageGallery = appData.gallery.filter(item => item.type === 'image');
+            if (imageGallery.length === 0) return;
 
-            document.getElementById('dailyPhotoContainer').innerHTML = 
-                `<img src="${photo.src}" alt="每日一图">`;
-            document.getElementById('dailyPhotoCaption').textContent = photo.caption;
+            const randomIndex = Math.floor(Math.random() * imageGallery.length);
+            const photo = imageGallery[randomIndex];
+
+            const img = document.getElementById('dailyPhotoImg');
+            img.onload = function() {
+                img.style.display = 'block';
+                document.getElementById('dailyPhotoCaption').textContent = photo.caption;
+            };
+
+            img.onerror = function() {
+                // 如果图片加载失败，显示默认图片
+                img.src = 'images/xiaoliang-2026-03-26.jpg';
+                document.getElementById('dailyPhotoCaption').textContent = '小亮的新照片 - 2026-03-26 🐦';
+            };
+
+            img.src = photo.src;
         }
 
         // Search Function
@@ -1636,6 +1749,33 @@
         // 页面加载时加载主题
         document.addEventListener('DOMContentLoaded', function() {
             loadTheme();
+
+            // 注册 Service Worker
+            if ('serviceWorker' in navigator) {
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker.register('/xiaoliang-website/service-worker.js')
+                        .then(registration => {
+                            console.log('Service Worker 注册成功:', registration.scope);
+
+                            // 监听更新
+                            registration.addEventListener('updatefound', () => {
+                                const newWorker = registration.installing;
+                                newWorker.addEventListener('statechange', () => {
+                                    if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                        // 新的 Service Worker 已安装，提示用户刷新
+                                        showToast('🆕 发现新版本，点击刷新更新');
+                                        setTimeout(() => {
+                                            window.location.reload();
+                                        }, 3000);
+                                    }
+                                });
+                            });
+                        })
+                        .catch(error => {
+                            console.log('Service Worker 注册失败:', error);
+                        });
+                });
+            }
         });
     </script>
 </body>
