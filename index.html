@@ -1000,19 +1000,12 @@
         <div class="daily-photo">
             <h2>📸 每日一图</h2>
             <div class="photo-container" id="dailyPhotoContainer">
-                <img src="images/xiaoliang-2026-03-26.jpg" alt="每日一图">
+                <img src="images/xiaoliang-2026-03-26.jpg" alt="每日一图" loading="lazy" decoding="async">
             </div>
             <div class="caption" id="dailyPhotoCaption">小亮的新照片 - 2026-03-26 🐦</div>
         </div>
 
-        <!-- Daily Video -->
-        <div class="daily-photo">
-            <h2>🎬 每日一拍</h2>
-            <div class="video-container">
-                <img src="videos/xiaoliang.gif" alt="小亮的精彩瞬间" style="max-width: 100%; border-radius: 12px;">
-            </div>
-            <div class="caption">小亮的精彩瞬间 - 2026-03-22</div>
-        </div>
+
 
         <!-- Diary Section - 类似1.0版 -->
         <section class="diary-section">
@@ -1427,7 +1420,7 @@
                 </ul>
                 ${entry.images && entry.images.length > 0 ? `
                     <div class="modal-images">
-                        ${entry.images.map(img => `<img src="${img}" alt="日记照片">`).join('')}
+                        ${entry.images.map(img => `<img src="${img}" alt="日记照片" loading="lazy" decoding="async">`).join('')}
                     </div>
                 ` : ''}
             `;
@@ -1457,7 +1450,7 @@
                 const div = document.createElement('div');
                 div.className = 'gallery-item';
                 div.innerHTML = `
-                    <img src="${item.src}" alt="${item.caption}" onclick="openLightbox('${item.src}', '${item.caption}')">
+                    <img src="${item.src}" alt="${item.caption}" onclick="openLightbox('${item.src}', '${item.caption}')" loading="lazy" decoding="async">
                     <div class="gallery-caption">${item.caption}</div>
                 `;
                 grid.appendChild(div);

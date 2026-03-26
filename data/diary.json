@@ -128,6 +128,11 @@
     },
     {
       "type": "image",
+      "src": "videos/xiaoliang.gif",
+      "caption": "小亮的精彩瞬间 - 2026-03-22 🎬"
+    },
+    {
+      "type": "image",
       "src": "images/xiaoliang-2026-03-23.jpg",
       "caption": "小亮在阳台晒太阳 ☀️"
     },
