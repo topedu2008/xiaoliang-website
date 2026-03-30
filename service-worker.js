@@ -1,17 +1,17 @@
 // Service Worker for 小亮网站 - 离线访问和缓存
-const CACHE_NAME = 'xiaoliang-v1.7';
+const CACHE_NAME = 'xiaoliang-v1.8';
 const urlsToCache = [
-  '/xiaoliang-website/',
-  '/xiaoliang-website/index.html',
-  '/xiaoliang-website/manifest.json',
-  '/xiaoliang-website/data/diary.json',
-  '/xiaoliang-website/data/interaction-stats.json',
-  '/xiaoliang-website/images/logo-dark.png',
-  '/xiaoliang-website/images/logo-light.png',
-  '/xiaoliang-website/images/gitbe-icon-only.png',
-  '/xiaoliang-website/images/xiaoliang-2026-03-26.jpg',
-  '/xiaoliang-website/images/xiaoliang-2026-03-23.jpg',
-  '/xiaoliang-website/videos/xiaoliang.gif'
+  './',
+  './index.html',
+  './manifest.json',
+  './data/diary.json',
+  './data/interaction-stats.json',
+  './images/logo-dark.png',
+  './images/logo-light.png',
+  './images/gitbe-icon-only.png',
+  './images/xiaoliang-2026-03-26.jpg',
+  './images/xiaoliang-2026-03-23.jpg',
+  './videos/xiaoliang.gif'
 ];
 
 // 安装 Service Worker
@@ -84,7 +84,7 @@ self.addEventListener('fetch', event => {
       .catch(() => {
         // 网络请求失败，返回离线页面（可选）
         if (event.request.destination === 'document') {
-          return caches.match('/xiaoliang-website/index.html');
+          return caches.match('./index.html');
         }
       })
   );
@@ -96,7 +96,7 @@ self.addEventListener('sync', event => {
     event.waitUntil(
       // 同步互动数据
       caches.open(CACHE_NAME).then(cache => {
-        return cache.add('/xiaoliang-website/data/interaction-stats.json');
+        return cache.add('./data/interaction-stats.json');
       })
     );
   }
