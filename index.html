@@ -1579,7 +1579,7 @@
                 </ul>
                 ${entry.images && entry.images.length > 0 ? `
                     <div class="modal-images">
-                        ${entry.images.map(img => `<img src="${img}" alt="日记照片">`).join('')}
+                        ${entry.images.map(img => `<img src="${img}" alt="日记照片" onerror="this.onerror=null;this.src='images/logo-light.png';this.title='图片加载失败，显示备用logo';">`).join('')}
                     </div>
                 ` : ''}
             `;
@@ -1609,7 +1609,7 @@
                 const div = document.createElement('div');
                 div.className = 'gallery-item';
                 div.innerHTML = `
-                    <img src="${item.src}" alt="${item.caption}" onclick="openLightbox('${item.src}', '${item.caption}')">
+                    <img src="${item.src}" alt="${item.caption}" onerror="this.onerror=null;this.src='images/logo-light.png';this.title='图片加载失败，显示备用logo';" onclick="openLightbox('${item.src}', '${item.caption}')">
                     <div class="gallery-caption">${item.caption}</div>
                 `;
                 grid.appendChild(div);
@@ -1660,9 +1660,9 @@
             };
 
             img.onerror = function() {
-                // 如果图片加载失败，显示默认图片
-                img.src = 'images/xiaoliang-2026-03-26.jpg';
-                document.getElementById('dailyPhotoCaption').textContent = '小亮的新照片 - 2026-03-26 🐦';
+                // 如果图片加载失败，显示备用 logo
+                img.src = 'images/logo-light.png';
+                document.getElementById('dailyPhotoCaption').textContent = '图片加载失败 - 显示备用logo';
             };
 
             img.src = photo.src;
