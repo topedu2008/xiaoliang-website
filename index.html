@@ -1250,6 +1250,17 @@
             allContent: []
         };
 
+        // Audio files for each interaction type
+        const interactionAudio = {
+            greet: null,  // 待上传
+            sing: 'audio/cockatiel-chirp-1.mp3',  // 听小亮唱歌 - 玄凤鹦鹉啾啾叫声
+            trick: null,  // 待上传
+            like: null  // 待上传
+        };
+
+        // Current audio element
+        let currentAudio = null;
+
         // Initialize
         document.addEventListener('DOMContentLoaded', function() {
             loadInteractionData();
@@ -1386,11 +1397,51 @@
             const message = typeMessages[Math.floor(Math.random() * typeMessages.length)];
             showMessage(message);
 
+            // Play audio for this interaction type
+            playInteractionAudio(type);
+
             // Check for stats update
             checkStatsUpdate(type);
 
             // Save data
             saveInteractionData();
+        }
+
+        // Play interaction audio
+        function playInteractionAudio(type) {
+            const audioFile = interactionAudio[type];
+
+            // If no audio file configured for this type, do nothing
+            if (!audioFile) {
+                console.log(`No audio file configured for type: ${type}`);
+                return;
+            }
+
+            console.log(`Playing audio: ${audioFile}`);
+
+            // Stop current audio if playing
+            if (currentAudio) {
+                currentAudio.pause();
+                currentAudio.currentTime = 0;
+            }
+
+            // Create new audio element
+            currentAudio = new Audio(audioFile);
+            currentAudio.volume = 0.7; // Set volume to 70%
+
+            // Play the audio
+            currentAudio.play().then(() => {
+                console.log('Audio started playing successfully');
+            }).catch(error => {
+                console.log('Audio play failed:', error);
+                // Don't show error to user, just log it
+            });
+
+            // Clean up when audio ends
+            currentAudio.onended = function() {
+                currentAudio = null;
+                console.log('Audio finished playing');
+            };
         }
 
         // Check if stats need to be updated
