@@ -17,7 +17,7 @@
         "期待小亮学会更多技能～"
       ],
       "images": [
-        "images/logo-light.png"
+        "images/xiaoliang-2026-03-26.jpg"
       ],
       "video": null
     },
@@ -49,9 +49,7 @@
         "小亮会继续努力学更多技能的！",
         "欢迎大家来和小亮互动～"
       ],
-      "images": [
-        "images/logo-light.png"
-      ],
+      "images": [],
       "video": "videos/xiaoliang-20260321.mp4"
     },
     {
@@ -125,7 +123,7 @@
   "gallery": [
     {
       "type": "image",
-      "src": "images/logo-light.png",
+      "src": "images/xiaoliang-2026-03-26.jpg",
       "caption": "小亮的新照片 🐦"
     },
     {
