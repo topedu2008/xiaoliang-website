@@ -1,11 +1,27 @@
 {
   "stats": {
-    "age": 5,
+    "age": 7,
     "scales": 0,
     "trust": 1,
     "cute": 100
   },
   "diary": [
+    {
+      "date": "2026-05-17",
+      "day": 61,
+      "title": "小亮7个月大了！🎉",
+      "content": [
+        "时间过得真快，小亮已经7个月大了！",
+        "羽毛越来越漂亮，红色腮红依然鲜艳",
+        "体型比之前大了不少，更加壮实了",
+        "性格越来越活泼，喜欢探索新事物",
+        "今天拍了新照片，记录成长的美好时刻～"
+      ],
+      "images": [
+        "images/xiaoliang-2026-05-17.jpg"
+      ],
+      "video": null
+    },
     {
       "date": "2026-03-26",
       "day": 8,
@@ -121,6 +137,11 @@
     }
   ],
   "gallery": [
+    {
+      "type": "image",
+      "src": "images/xiaoliang-2026-05-17.jpg",
+      "caption": "小亮7个月大啦！🎉"
+    },
     {
       "type": "image",
       "src": "images/xiaoliang-2026-03-26.jpg",
