@@ -18,7 +18,8 @@
         "今天拍了新照片，记录成长的美好时刻～"
       ],
       "images": [
-        "images/xiaoliang-2026-05-17.jpg"
+        "images/xiaoliang-2026-05-17.jpg",
+        "images/xiaoliang-2026-05-17-2.jpg"
       ],
       "video": null
     },
@@ -141,6 +142,11 @@
       "type": "image",
       "src": "images/xiaoliang-2026-05-17.jpg",
       "caption": "小亮7个月大啦！🎉"
+    },
+    {
+      "type": "image",
+      "src": "images/xiaoliang-2026-05-17-2.jpg",
+      "caption": "小亮的日常 🐦"
     },
     {
       "type": "image",
